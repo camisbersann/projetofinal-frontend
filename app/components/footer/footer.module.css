@@ -1,0 +1,44 @@
+.a {
+    display: flex;
+    gap: 10rem;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background-color: #005383;
+}
+
+.colors {
+    height: 100px;
+    background-color: #005383;
+}
+
+#icons {
+    gap: 2rem;
+    margin-right: 10px;
+}
+
+#text {
+    gap: 2rem;
+}
+
+.linha {
+    background-color: white;
+    background-color: #005383;
+    color: white;
+    height: 1px;
+    margin-right: 15%;
+    margin-left: 15%;
+    width: 70%;
+}
+
+.text2 {
+    color: white;
+    background-color: #005383;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.logoImage {
+    margin-left: 1rem;
+}
