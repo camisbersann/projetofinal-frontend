@@ -5,10 +5,27 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Header } from '../components/header/Header';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const [array, setArray] = useState([]);
   const [person, setPerson] = useState([]);
+  const router = useRouter();
+
+  const update = async (id) => {
+    router.push(`/person/${id}`);
+  };
+
+  const deletar = async (id) => {
+    const url = `/api/person/${id}`;
+
+    try{
+      await axios.delete(url);
+      setPerson(person.filter((person) => person.id !== id));
+    }catch (error){
+      console.error("Erro fetching data:", error);
+    }
+  }
 
   useEffect(() => {
     async function fetchPerson() {
@@ -54,7 +71,19 @@ export default function Home() {
                             <p>Posição: {person.position}</p>
                             <p>Descrição: {person.description}</p>
                         </div>
+
+                        <div className={styles.buttons}>
+                          <button className={`${styles.button} ${styles.deleteButton}`}
+                          onClick={() => deletar(person.id)}> Deletar</button>
+                        </div>
+
+                        <div className={styles.buttons}>
+                          <button className={`${styles.button} ${styles.editButton}`}
+                          onClick={() => update(person.id)}> Atualizar</button>
+                        </div>
+                      
                     </div>
+                    
                 ))}
             </div>
         ) : (
