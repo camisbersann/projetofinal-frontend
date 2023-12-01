@@ -1,47 +1,59 @@
 'use client';
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import styles from "./register.module.css";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import styles from "./person.module.css";
 import { Header } from "@/app/components/header/Header";
+import Link from "next/link";
 
-export default function Register() {
+export default function UpdatePerson({ params }) {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [email, setEmail] = useState("");
     const [instagram, setInstagram] = useState("");
     const [position, setPosition] = useState("");
     const [description, setDescription] = useState("");
-    const [person, setPerson] = useState([]);
+    const router = useRouter();
+    const { id } = params;
+
+    useEffect(() => {
+        async function fetchPersonDetails() {
+            try {
+                const response = await axios.get(`/api/person/${id}`)
+                const person = response.data;
+                setName(person.name)
+                setAge(person.age)
+                setEmail(person.email)
+                setInstagram(person.instagram)
+                setPosition(person.position)
+                setDescription(person.description)
+            } catch (error) {
+                console.error("Error fetching person details:", error)
+            }
+        }
+
+        if (id) {
+            fetchPersonDetails()
+        }
+
+    }, [id]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            await axios.post("/api/person", { name, age, email, instagram, position, description });
-            setName("");
-            setAge("");
-            setEmail("");
-            setInstagram("");
-            setPosition("");
-            setDescription("");
+            await axios.put(`/api/person/${id}`, { name, age, email, instagram, position, description });
+            router.push(`/person/`);
         } catch (error) {
-            console.error("Error fetching data:", error);
+            console.error("Error updating person:", error);
         }
-    }
-
-    useEffect(() => {
-        async function fetchPerson() {
-            try {
-                const response = await axios.get("/api/person");
-                setPerson(response.data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        }
-
-        fetchPerson();
-    }, []);
+        console.log(name);
+        console.log(age);
+        console.log(email);
+        console.log(instagram);
+        console.log(position);
+        console.log(description);
+    };
 
     return (
         <>
@@ -56,7 +68,7 @@ export default function Register() {
             </div>
 
             <div className={styles.personContainer}>
-                <h1 className={styles.mainText}>Cadastrar Membro</h1>
+                <h1 className={styles.mainText}>Atualizar</h1>
 
                 <form onSubmit={handleSubmit}>
                     <div className={styles.formGroup}>
@@ -107,8 +119,9 @@ export default function Register() {
                             value={description} onChange={(e) => setDescription(e.target.value)} required></input>
                     </div>
 
+
                     <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
-                        Enviar formulário
+                        Atualizar
                     </button>
 
                 </form>
@@ -116,7 +129,6 @@ export default function Register() {
         </>
 
     )
+
+
 }
-
-
-
