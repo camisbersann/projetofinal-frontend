@@ -1,0 +1,202 @@
+.personList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+.persons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.persons:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.personInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.personInfo h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 400;
+    color: #333;
+    border-bottom: 2.5px solid;
+    border-image: linear-gradient(to right, #5d00ff, transparent);
+    border-image-slice: 1;
+}
+
+.personInfo h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+}
+
+.personInfo div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.personInfo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+}
+
+.personInfo a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.buttonsDiv {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 54px;
+    height: 54px;
+    margin: 0 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border:none;
+}
+
+.deleteButton {
+    border-bottom: 5px solid #ff0000;
+}
+
+.instaButton {
+    border-bottom: 5px solid #e1306c;
+}
+
+.editButton {
+    border-bottom: 5px solid #007bff;
+}
+
+/* Efeito de hover para o botão de deletar (vermelho) */
+.deleteButton::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Mudança aqui: começar da parte inferior */
+    left: 0;
+    width: 100%; /* Mudança aqui: começar com a largura total */
+    height: 0;
+    background: linear-gradient(to top, #ff0000, transparent);
+    z-index: -1;
+    transition: height 0.3s ease; /* Mudança aqui: transição da altura */
+}
+
+.deleteButton:hover::before {
+    height: 100%; /* Mudança aqui: aumentar a altura para 100% no hover */
+}
+
+/* Efeito de hover para o botão do Instagram (cores do Instagram) */
+.instaButton::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to top, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80, transparent);
+    z-index: -1;
+    transition: height 0.3s ease;
+}
+
+.instaButton:hover::before {
+    height: 100%;
+}
+
+/* Efeito de hover para o botão de editar (azul) */
+.editButton::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to top, #007bff, transparent);
+    z-index: -1;
+    transition: height 0.3s ease;
+}
+
+.editButton:hover::before {
+    height: 100%;
+}
+
+/* Cor fixa para os botões durante a alternância */
+.buttons.alternate .button {
+    background-color: #4CAF50; /* Cor fixa para os botões em modo alternado */
+}
+
+@media only screen and (max-width: 600px) {
+    .deleteButton {
+        border-bottom: 5px solid #ff0000;
+    }
+
+    .instaButton {
+        border-bottom: 5px solid #e1306c;
+    }
+
+    .editButton {
+        border-bottom: 5px solid #007bff;
+    }
+}
