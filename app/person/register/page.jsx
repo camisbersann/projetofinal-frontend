@@ -1,9 +1,11 @@
-'use client';
+'use client'
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styles from "./register.module.css";
 import Link from "next/link";
 import { Header } from "@/app/components/header/Header";
+import { Button } from "@/app/components/button/Button";
+import { Input } from "@/app/components/Input/Input"
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -49,9 +51,9 @@ export default function Register() {
 
             <div className={styles.actions}>
                 <Link href="/person">
-                    <button className={`${styles.button} ${styles.primaryButton}`}>
+                    <Button className={`${styles.button} ${styles.primaryButton}`}>
                         Voltar para Membros
-                    </button>
+                    </Button>
                 </Link>
             </div>
 
@@ -59,57 +61,21 @@ export default function Register() {
                 <h1 className={styles.mainText}>Cadastrar Membro</h1>
 
                 <form onSubmit={handleSubmit}>
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="name">
-                            Nome:
-                        </label>
-                        <input className={styles.input} type="text" id="name"
-                            value={name} onChange={(e) => setName(e.target.value)} required></input>
-                    </div>
+                    <Input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required label="Nome" />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="age">
-                            Idade:
-                        </label>
-                        <input className={styles.input} type="number" id="age"
-                            value={age} onChange={(e) => setAge(e.target.value)} required></input>
-                    </div>
+                    <Input type="number" id="age" value={age} onChange={(e) => setAge(e.target.value)} required label="Idade" />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="email">
-                            Email:
-                        </label>
-                        <input className={styles.input} type="text" id="email"
-                            value={email} onChange={(e) => setEmail(e.target.value)} required></input>
-                    </div>
+                    <Input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required label="Email" />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="instagram">
-                            Instagram:
-                        </label>
-                        <input className={styles.input} type="text" id="instagram"
-                            value={instagram} onChange={(e) => setInstagram(e.target.value)} required></input>
-                    </div>
+                    <Input type="text" id="instagram" value={instagram} onChange={(e) => setInstagram(e.target.value)} required label="Instagram" />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="position">
-                            Posição:
-                        </label>
-                        <input className={styles.input} type="text" id="position"
-                            value={position} onChange={(e) => setPosition(e.target.value)} required></input>
-                    </div>
+                    <Input type="text" id="position" value={position} onChange={(e) => setPosition(e.target.value)} required label="Posição" />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="description">
-                            Descrição:
-                        </label>
-                        <input className={styles.input} type="text" id="description"
-                            value={description} onChange={(e) => setDescription(e.target.value)} required></input>
-                    </div>
+                    <Input type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value)} required label="Descrição" />
 
-                    <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
+                    <Button type="submit" className={`${styles.button} ${styles.submitButton}`}>
                         Enviar formulário
-                    </button>
+                    </Button>
 
                 </form>
             </div>
@@ -117,6 +83,5 @@ export default function Register() {
 
     )
 }
-
 
 
