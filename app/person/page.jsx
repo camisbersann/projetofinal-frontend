@@ -64,7 +64,7 @@ export default function Home() {
           <div className={styles.personList}>
             {array.map((person) => (
               <div key={person.id} className={styles.persons}>
-                <Image width={100} height={100} src={person.image} className={styles.perfilPhoto}/>
+                <img width={100} height={100} src={person.image} className={styles.perfilPhoto}/>
                 <div className={styles.personInfo}>
                   <h2>{person.name}</h2>
                   <h4>{person.position}</h4>

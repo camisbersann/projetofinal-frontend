@@ -28,6 +28,7 @@ export default function UpdatePerson({ params }) {
                 setInstagram(person.instagram)
                 setPosition(person.position)
                 setDescription(person.description)
+                setImage(person.image)
             } catch (error) {
                 console.error("Error fetching person details:", error)
             }
@@ -43,7 +44,7 @@ export default function UpdatePerson({ params }) {
         e.preventDefault();
 
         try {
-            await axios.put(`/api/person/${id}`, { name, age, email, instagram, position, description });
+            await axios.put(`/api/person/${id}`, { name, age, email, instagram, position, description, image });
             router.push(`/person/`);
         } catch (error) {
             console.error("Error updating person:", error);

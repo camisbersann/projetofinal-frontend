@@ -164,7 +164,8 @@
     left: 0;
     width: 100%;
     height: 0;
-    background: linear-gradient(to top, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80, transparent 95%);
+    background: url(https://static.vecteezy.com/ti/vetor-gratis/t2/7656490-vector-colorido-gradiente-fundo-inspirado-por-instagram-vetor.jpg);
+    background-size: cover;
     z-index: -1;
     transition: height 0.3s ease;
 }
