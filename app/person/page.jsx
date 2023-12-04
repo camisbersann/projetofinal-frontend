@@ -41,8 +41,8 @@ export default function Home() {
     fetchPerson();
   }, []);
 
-  console.log("AAAAAAAAAAAAA");
-  console.log(array);
+  //console.log("AAAAAAAAAAAAA");
+  //console.log(array);
 
   return (
     <>

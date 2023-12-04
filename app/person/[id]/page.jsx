@@ -47,12 +47,13 @@ export default function UpdatePerson({ params }) {
         } catch (error) {
             console.error("Error updating person:", error);
         }
-        console.log(name);
-        console.log(age);
-        console.log(email);
-        console.log(instagram);
-        console.log(position);
-        console.log(description);
+        
+        // console.log(name);
+        // console.log(age);
+        // console.log(email);
+        // console.log(instagram);
+        // console.log(position);
+        // console.log(description);
     };
 
     return (
