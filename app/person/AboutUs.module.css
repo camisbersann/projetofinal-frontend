@@ -13,8 +13,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     margin: 20px;
     padding: 20px;
     box-sizing: border-box;
@@ -23,6 +23,14 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: all 0.5s ease-in-out;
     cursor: pointer;
+}
+
+.perfilPhoto {
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    border:2px solid;
+    border-image:linear-gradient(to top, #0040ff, transparent);
+    border-image-slice: 1;
 }
 
 .persons:hover {
@@ -156,7 +164,7 @@
     left: 0;
     width: 100%;
     height: 0;
-    background: linear-gradient(to top, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80, transparent);
+    background: linear-gradient(to top, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80, transparent 95%);
     z-index: -1;
     transition: height 0.3s ease;
 }

@@ -12,19 +12,21 @@ export default function Register() {
     const [instagram, setInstagram] = useState("");
     const [position, setPosition] = useState("");
     const [description, setDescription] = useState("");
+    const [image, setImage] = useState("");
     const [person, setPerson] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            await axios.post("/api/person", { name, age, email, instagram, position, description });
+            await axios.post("/api/person", { name, age, email, instagram, position, description, image });
             setName("");
             setAge("");
             setEmail("");
             setInstagram("");
             setPosition("");
             setDescription("");
+            setImage("");
         } catch (error) {
             console.error("Error fetching data:", error);
         }
@@ -105,6 +107,14 @@ export default function Register() {
                         </label>
                         <input className={styles.input} type="text" id="description"
                             value={description} onChange={(e) => setDescription(e.target.value)} required></input>
+                    </div>
+
+                    <div className={styles.formGroup}>
+                        <label className={styles.label} htmlFor="image">
+                            Imagem:
+                        </label>
+                        <input className={styles.input} type="text" id="image"
+                            value={image} onChange={(e) => setImage(e.target.value)} required></input>
                     </div>
 
                     <button type="submit" className={`${styles.button} ${styles.submitButton}`}>

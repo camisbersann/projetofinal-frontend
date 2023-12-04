@@ -13,6 +13,7 @@ export default function UpdatePerson({ params }) {
     const [instagram, setInstagram] = useState("");
     const [position, setPosition] = useState("");
     const [description, setDescription] = useState("");
+    const [image, setImage] = useState("")
     const router = useRouter();
     const { id } = params;
 
@@ -119,6 +120,13 @@ export default function UpdatePerson({ params }) {
                             value={description} onChange={(e) => setDescription(e.target.value)} required></input>
                     </div>
 
+                    <div className={styles.formGroup}>
+                        <label className={styles.label} htmlFor="image">
+                            Imagem:
+                        </label>
+                        <input className={styles.input} type="text" id="image"
+                            value={image} onChange={(e) => setImage(e.target.value)} required></input>
+                    </div>
 
                     <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
                         Atualizar
