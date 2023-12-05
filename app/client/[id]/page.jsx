@@ -45,17 +45,18 @@ export default function UpdateClient({ params }) {
 
         try {
             await axios.put(`/api/client/${id}`, { name, birthdate, email, password, money, cpf, cep });
-            router.push(`/client/`);
+            router.push(`/client/alreadyRegistered`);
         } catch (error) {
             console.error("Error updating client:", error);
         }
+    }
 
         return (
             <>
                 <Header />
 
                 <div className={styles.actions}>
-                    <Link href="/alreadyRegistered">
+                    <Link href="/client/alreadyRegistered">
                         <button className={`${styles.button} ${styles.primaryButton}`}>
                             Voltar para Clientes
                         </button>
@@ -133,5 +134,4 @@ export default function UpdateClient({ params }) {
             </>
 
         )
-    }
 }
