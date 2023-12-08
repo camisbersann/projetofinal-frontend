@@ -1,15 +1,19 @@
 import React from "react";
+import styles from './Input.module.css'
 
-
-const Input = ({ type, id, value, onChange, required, label }) => {
+const InputRegisters = ({ type, varName, setVarName, label }) => {
     return (
         <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor={id}>
+            <label className={styles.label} htmlFor={varName}>
                 {label}:
             </label>
-            <input className={styles.input} type={type} id={id} value={value} onChange={onChange} required={required}></input>
+            <input className={styles.input}
+             type={type} 
+             value={varName}
+              onChange= {(e) => setVarName(e.target.value)}
+             />
         </div>
-    );
-};
+    )
+}
 
-export default Input;
+export default InputRegisters;

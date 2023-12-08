@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./register.module.css";
 import Link from "next/link";
 import { Header } from "@/app/components/header/Header";
+import InputRegisters from "@/app/components/Input/Input";
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -61,61 +62,21 @@ export default function Register() {
                 <h1 className={styles.mainText}>Cadastrar Membro</h1>
 
                 <form onSubmit={handleSubmit}>
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="name">
-                            Nome:
-                        </label>
-                        <input className={styles.input} type="text" id="name"
-                            value={name} onChange={(e) => setName(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'}/>
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="age">
-                            Idade:
-                        </label>
-                        <input className={styles.input} type="number" id="age"
-                            value={age} onChange={(e) => setAge(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"number"} varName={age} setVarName={setAge} label={'Idade'}/>
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="email">
-                            Email:
-                        </label>
-                        <input className={styles.input} type="text" id="email"
-                            value={email} onChange={(e) => setEmail(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={email} setVarName={setEmail} label={'Email'}/>
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="instagram">
-                            Instagram:
-                        </label>
-                        <input className={styles.input} type="text" id="instagram"
-                            value={instagram} onChange={(e) => setInstagram(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={instagram} setVarName={setInstagram} label={'Instagram'}/>
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="position">
-                            Posição:
-                        </label>
-                        <input className={styles.input} type="text" id="position"
-                            value={position} onChange={(e) => setPosition(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={position} setVarName={setPosition} label={'Posição'}/>
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="description">
-                            Descrição:
-                        </label>
-                        <input className={styles.input} type="text" id="description"
-                            value={description} onChange={(e) => setDescription(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={description} setVarName={setDescription} label={'Descrição'}/>
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="image">
-                            Imagem:
-                        </label>
-                        <input className={styles.input} type="text" id="image"
-                            value={image} onChange={(e) => setImage(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={image} setVarName={setImage} label={'Imagem'}/>
+
+                   
 
                     <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
                         Enviar formulário
