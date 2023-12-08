@@ -51,87 +51,42 @@ export default function UpdateClient({ params }) {
         }
     }
 
-        return (
-            <>
-                <Header />
+    return (
+        <>
+            <Header />
 
-                <div className={styles.actions}>
-                    <Link href="/client/alreadyRegistered">
-                        <button className={`${styles.button} ${styles.primaryButton}`}>
-                            Voltar para Clientes
-                        </button>
-                    </Link>
-                </div>
+            <div className={styles.actions}>
+                <Link href="/client/alreadyRegistered">
+                    <button className={`${styles.button} ${styles.primaryButton}`}>
+                        Voltar para Clientes
+                    </button>
+                </Link>
+            </div>
 
-                <div className={styles.clientsContainer}>
-                    <h1 className={styles.mainText}>Atualizar</h1>
-
-
-                    <form onSubmit={handleSubmit}>
-                        <div className={styles.formGroup}>
-                            <label className={styles.label} htmlFor="name">
-                                Nome:
-                            </label>
-                            <input className={styles.input} type="text" id="name"
-                                value={name} onChange={(e) => setName(e.target.value)} required></input>
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label className={styles.label} htmlFor="birthdate">
-                                Data de Nascimento:
-                            </label>
-                            <input className={styles.input} type="date" id="birthdate"
-                                value={birthdate} onChange={(e) => setBirthDate(e.target.value)} required></input>
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label className={styles.label} htmlFor="email">
-                                Email:
-                            </label>
-                            <input className={styles.input} type="text" id="email"
-                                value={email} onChange={(e) => setEmail(e.target.value)} required></input>
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label className={styles.label} htmlFor="password">
-                                Senha:
-                            </label>
-                            <input className={styles.input} type="number" id="password"
-                                value={password} onChange={(e) => setPassword(e.target.value)} required></input>
-                        </div>
+            <div className={styles.clientsContainer}>
+                <h1 className={styles.mainText}>Atualizar</h1>
 
 
-                        <div className={styles.formGroup}>
-                            <label className={styles.label} htmlFor="money">
-                                Dinheiro:
-                            </label>
-                            <input className={styles.input} type="number" id="money"
-                                value={money} onChange={(e) => setMoney(e.target.value)} required></input>
-                        </div>
+                <form onSubmit={handleSubmit}>
+                    <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
 
-                        <div className={styles.formGroup}>
-                            <label className={styles.label} htmlFor="cpf">
-                                CPF:
-                            </label>
-                            <input className={styles.input} type="number" id="cpf"
-                                value={cpf} onChange={(e) => setCpf(e.target.value)} required></input>
-                        </div>
+                    <InputRegisters type={"date"} varName={birthdate} setVarName={setBirthDate} label={'Data de Nascimento'} />
 
-                        <div className={styles.formGroup}>
-                            <label className={styles.label} htmlFor="cep">
-                                CEP:
-                            </label>
-                            <input className={styles.input} type="number" id="cep"
-                                value={cep} onChange={(e) => setCep(e.target.value)} required></input>
-                        </div>
+                    <InputRegisters type={"text"} varName={password} setVarName={setPassword} label={'Senha'} />
 
-                        <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
-                            Atualizar
-                        </button>
+                    <InputRegisters type={"number"} varName={money} setVarName={setMoney} label={'Dinheiro'} />
 
-                    </form>
-                </div>
-            </>
+                    <InputRegisters type={"number"} varName={cpf} setVarName={setCpf} label={'CPF'} />
 
-        )
+                    <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
+
+                    <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
+                        Atualizar
+                    </button>
+
+                </form>
+            </div>
+        </>
+
+    )
 }
