@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import styles from './page.module.css';
 import Link from "next/link";
 import { Header } from "./components/header/Header";
+import InputRegisters from "@/app/components/Input/Input";
+import Buttons from "./components/Button/Button";
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -53,9 +55,7 @@ export default function Register() {
 
             <div className={styles.actions}>
                 <Link href="/client/alreadyRegistered">
-                    <button className={`${styles.button} ${styles.primaryButton}`}>
-                        Registros
-                    </button>
+                    <Buttons titulo={"Registros"} />
                 </Link>
             </div>
 
@@ -63,67 +63,19 @@ export default function Register() {
                 <h1 className={styles.mainText}>Cadastro</h1>
 
                 <form onSubmit={handleSubmit}>
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="name">
-                            Nome:
-                        </label>
-                        <input className={styles.input} type="text" id="name"
-                            value={name} onChange={(e) => setName(e.target.value)} required></input>
-                    </div>
+                <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="birthdate">
-                            Data de Nascimento:
-                        </label>
-                        <input className={styles.input} type="date" id="birthdate"
-                            value={birthdate} onChange={(e) => setBirthDate(e.target.value)} required></input>
-                    </div>
+                <InputRegisters type={"date"} varName={birthdate} setVarName={setBirthDate} label={'Data de Nascimento'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="email">
-                            Email:
-                        </label>
-                        <input className={styles.input} type="text" id="email"
-                            value={email} onChange={(e) => setEmail(e.target.value)} required></input>
-                    </div>
+                <InputRegisters type={"text"} varName={password} setVarName={setPassword} label={'Senha'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="password">
-                            Senha:
-                        </label>
-                        <input className={styles.input} type="number" id="password"
-                            value={password} onChange={(e) => setPassword(e.target.value)} required></input>
-                    </div>
+                <InputRegisters type={"number"} varName={money} setVarName={setMoney} label={'Dinheiro'} />
 
+                <InputRegisters type={"number"} varName={cpf} setVarName={setCpf} label={'CPF'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="money">
-                            Dinheiro:
-                        </label>
-                        <input className={styles.input} type="number" id="position"
-                            value={money} onChange={(e) => setMoney(e.target.value)} required></input>
-                    </div>
+                <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="cpf">
-                            CPF:
-                        </label>
-                        <input className={styles.input} type="number" id="cpf"
-                            value={cpf} onChange={(e) => setCpf(e.target.value)} required></input>
-                    </div>
-
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="cep">
-                            CEP:
-                        </label>
-                        <input className={styles.input} type="number" id="cep"
-                            value={cep} onChange={(e) => setCep(e.target.value)} required></input>
-                    </div>
-
-                    <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
-                        Registrar
-                    </button>
-
+                <Buttons type={"submit"} titulo={"Registrar"} />
                 </form>
             </div>
         </>

@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import styles from "./person.module.css";
 import { Header } from "@/app/components/header/Header";
 import Link from "next/link";
+import InputRegisters from "@/app/components/Input/Input";
+import Buttons from "@/app/components/Button/Button";
 
 export default function UpdatePerson({ params }) {
     const [name, setName] = useState("");
@@ -49,7 +51,7 @@ export default function UpdatePerson({ params }) {
         } catch (error) {
             console.error("Error updating person:", error);
         }
-        
+
         // console.log(name);
         // console.log(age);
         // console.log(email);
@@ -64,9 +66,7 @@ export default function UpdatePerson({ params }) {
 
             <div className={styles.actions}>
                 <Link href="/person">
-                    <button className={`${styles.button} ${styles.primaryButton}`}>
-                        Voltar para Membros
-                    </button>
+                <Buttons titulo={"Voltar para Membros"}/>
                 </Link>
             </div>
 
@@ -74,65 +74,21 @@ export default function UpdatePerson({ params }) {
                 <h1 className={styles.mainText}>Atualizar</h1>
 
                 <form onSubmit={handleSubmit}>
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="name">
-                            Nome:
-                        </label>
-                        <input className={styles.input} type="text" id="name"
-                            value={name} onChange={(e) => setName(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="age">
-                            Idade:
-                        </label>
-                        <input className={styles.input} type="number" id="age"
-                            value={age} onChange={(e) => setAge(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"number"} varName={age} setVarName={setAge} label={'Idade'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="email">
-                            Email:
-                        </label>
-                        <input className={styles.input} type="text" id="email"
-                            value={email} onChange={(e) => setEmail(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={email} setVarName={setEmail} label={'Email'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="instagram">
-                            Instagram:
-                        </label>
-                        <input className={styles.input} type="text" id="instagram"
-                            value={instagram} onChange={(e) => setInstagram(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={instagram} setVarName={setInstagram} label={'Instagram'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="position">
-                            Posição:
-                        </label>
-                        <input className={styles.input} type="text" id="position"
-                            value={position} onChange={(e) => setPosition(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={position} setVarName={setPosition} label={'Posição'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="description">
-                            Descrição:
-                        </label>
-                        <input className={styles.input} type="text" id="description"
-                            value={description} onChange={(e) => setDescription(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={description} setVarName={setDescription} label={'Descrição'} />
 
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="image">
-                            Imagem:
-                        </label>
-                        <input className={styles.input} type="text" id="image"
-                            value={image} onChange={(e) => setImage(e.target.value)} required></input>
-                    </div>
+                    <InputRegisters type={"text"} varName={image} setVarName={setImage} label={'Imagem'} />
 
-                    <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
-                        Atualizar
-                    </button>
+                    <Buttons type={"submit"} titulo={"Atualizar"} />
 
                 </form>
             </div>
