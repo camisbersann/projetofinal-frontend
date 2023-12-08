@@ -1,9 +1,11 @@
-'use client';
+'use client'
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styles from "./register.module.css";
 import Link from "next/link";
 import { Header } from "@/app/components/header/Header";
+import { Button } from "@/app/components/button/Button";
+import { Input } from "@/app/components/Input/Input"
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -51,9 +53,9 @@ export default function Register() {
 
             <div className={styles.actions}>
                 <Link href="/person">
-                    <button className={`${styles.button} ${styles.primaryButton}`}>
+                    <Button className={`${styles.button} ${styles.primaryButton}`}>
                         Voltar para Membros
-                    </button>
+                    </Button>
                 </Link>
             </div>
 
@@ -61,6 +63,21 @@ export default function Register() {
                 <h1 className={styles.mainText}>Cadastrar Membro</h1>
 
                 <form onSubmit={handleSubmit}>
+
+                    <Input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required label="Nome" />
+
+                    <Input type="number" id="age" value={age} onChange={(e) => setAge(e.target.value)} required label="Idade" />
+
+                    <Input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required label="Email" />
+
+                    <Input type="text" id="instagram" value={instagram} onChange={(e) => setInstagram(e.target.value)} required label="Instagram" />
+
+                    <Input type="text" id="position" value={position} onChange={(e) => setPosition(e.target.value)} required label="Posição" />
+
+                    <Input type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value)} required label="Descrição" />
+
+                    <Button type="submit" className={`${styles.button} ${styles.submitButton}`}>
+
                     <div className={styles.formGroup}>
                         <label className={styles.label} htmlFor="name">
                             Nome:
@@ -118,8 +135,9 @@ export default function Register() {
                     </div>
 
                     <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
+
                         Enviar formulário
-                    </button>
+                    </Button>
 
                 </form>
             </div>
@@ -127,6 +145,5 @@ export default function Register() {
 
     )
 }
-
 
 

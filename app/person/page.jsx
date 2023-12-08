@@ -4,6 +4,7 @@ import styles from './AboutUs.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Header } from '../components/header/Header';
+import { Footer } from '../components/footer/Footer'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -96,6 +97,7 @@ export default function Home() {
         )
         }
       </div>
+      <Footer/>
     </>
   )
 }
