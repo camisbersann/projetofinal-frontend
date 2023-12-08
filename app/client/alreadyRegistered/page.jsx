@@ -52,7 +52,7 @@ export default function Home() {
       </div>
 
       <div className={styles.clientContainer}>
-        <h1 className={styles.mainText}>Membros</h1>
+        <h1 className={styles.mainText}>Clientes</h1>
 
         {client.length ? (
           <div className={styles.clientList}>
