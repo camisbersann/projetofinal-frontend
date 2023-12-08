@@ -42,3 +42,11 @@
 .logoImage {
     margin-left: 1rem;
 }
+
+@media (max-width: 728px) {
+    .a {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+

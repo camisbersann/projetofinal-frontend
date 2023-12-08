@@ -22,6 +22,7 @@
     font-weight: 500;
     transition: all 0.3s ease;
     border-bottom: 2px solid transparent;
+    padding-bottom: 10px;
 }
 
 .logoImage {
@@ -40,3 +41,27 @@
 }
 
 
+ /* Resposividade */
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 12rem;
+    }
+
+    .links {
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+
+    .logoImage {
+        margin-left: 25%; 
+    }
+
+    .d1 {
+        margin-top: 1rem;
+        width: 95px;
+    }
+}
