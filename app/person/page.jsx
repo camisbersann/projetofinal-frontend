@@ -43,8 +43,8 @@ export default function Home() {
     fetchPerson();
   }, []);
 
-  console.log("AAAAAAAAAAAAA");
-  console.log(array);
+  //console.log("AAAAAAAAAAAAA");
+  //console.log(array);
 
   return (
     <>
@@ -65,6 +65,7 @@ export default function Home() {
           <div className={styles.personList}>
             {array.map((person) => (
               <div key={person.id} className={styles.persons}>
+                <img width={100} height={100} src={person.image} className={styles.perfilPhoto}/>
                 <div className={styles.personInfo}>
                   <h2>{person.name}</h2>
                   <h4>{person.position}</h4>

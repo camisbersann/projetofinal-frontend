@@ -13,6 +13,7 @@ export default function UpdatePerson({ params }) {
     const [instagram, setInstagram] = useState("");
     const [position, setPosition] = useState("");
     const [description, setDescription] = useState("");
+    const [image, setImage] = useState("")
     const router = useRouter();
     const { id } = params;
 
@@ -27,6 +28,7 @@ export default function UpdatePerson({ params }) {
                 setInstagram(person.instagram)
                 setPosition(person.position)
                 setDescription(person.description)
+                setImage(person.image)
             } catch (error) {
                 console.error("Error fetching person details:", error)
             }
@@ -42,17 +44,18 @@ export default function UpdatePerson({ params }) {
         e.preventDefault();
 
         try {
-            await axios.put(`/api/person/${id}`, { name, age, email, instagram, position, description });
+            await axios.put(`/api/person/${id}`, { name, age, email, instagram, position, description, image });
             router.push(`/person/`);
         } catch (error) {
             console.error("Error updating person:", error);
         }
-        console.log(name);
-        console.log(age);
-        console.log(email);
-        console.log(instagram);
-        console.log(position);
-        console.log(description);
+        
+        // console.log(name);
+        // console.log(age);
+        // console.log(email);
+        // console.log(instagram);
+        // console.log(position);
+        // console.log(description);
     };
 
     return (
@@ -119,6 +122,13 @@ export default function UpdatePerson({ params }) {
                             value={description} onChange={(e) => setDescription(e.target.value)} required></input>
                     </div>
 
+                    <div className={styles.formGroup}>
+                        <label className={styles.label} htmlFor="image">
+                            Imagem:
+                        </label>
+                        <input className={styles.input} type="text" id="image"
+                            value={image} onChange={(e) => setImage(e.target.value)} required></input>
+                    </div>
 
                     <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
                         Atualizar
