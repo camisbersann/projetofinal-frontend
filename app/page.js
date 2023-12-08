@@ -21,7 +21,7 @@ export default function Register() {
         e.preventDefault();
 
         try {
-            await axios.post("/api/client", { name, birthdate, password, email, money, cpf, cep });
+            await axios.post("/api/client", { name, birthdate, email, password, money, cpf, cep });
             setName("");
             setBirthDate("");
             setPassword("");
@@ -66,6 +66,8 @@ export default function Register() {
                 <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
 
                 <InputRegisters type={"date"} varName={birthdate} setVarName={setBirthDate} label={'Data de Nascimento'} />
+
+                <InputRegisters type={"email"} varName={email} setVarName={setEmail} label={'Email'} />
 
                 <InputRegisters type={"text"} varName={password} setVarName={setPassword} label={'Senha'} />
 
