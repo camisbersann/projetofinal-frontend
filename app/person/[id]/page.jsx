@@ -6,6 +6,7 @@ import styles from "./person.module.css";
 import { Header } from "@/app/components/header/Header";
 import Link from "next/link";
 import InputRegisters from "@/app/components/Input/Input";
+import Buttons from "@/app/components/Button/Button";
 
 export default function UpdatePerson({ params }) {
     const [name, setName] = useState("");
@@ -65,9 +66,7 @@ export default function UpdatePerson({ params }) {
 
             <div className={styles.actions}>
                 <Link href="/person">
-                    <button className={`${styles.button} ${styles.primaryButton}`}>
-                        Voltar para Membros
-                    </button>
+                <Buttons titulo={"Voltar para Membros"}/>
                 </Link>
             </div>
 
@@ -89,9 +88,7 @@ export default function UpdatePerson({ params }) {
 
                     <InputRegisters type={"text"} varName={image} setVarName={setImage} label={'Imagem'} />
 
-                    <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
-                        Atualizar
-                    </button>
+                    <Buttons type={"submit"} titulo={"Atualizar"} />
 
                 </form>
             </div>

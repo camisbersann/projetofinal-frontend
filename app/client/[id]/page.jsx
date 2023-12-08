@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "./client.module.css";
 import { Header } from "@/app/components/header/Header";
 import Link from "next/link";
+import Buttons from "@/app/components/Button/Button";
 
 export default function UpdateClient({ params }) {
     const [name, setName] = useState("");
@@ -57,9 +58,7 @@ export default function UpdateClient({ params }) {
 
             <div className={styles.actions}>
                 <Link href="/client/alreadyRegistered">
-                    <button className={`${styles.button} ${styles.primaryButton}`}>
-                        Voltar para Clientes
-                    </button>
+                    <Buttons titulo={"Voltar para Clientes"} />
                 </Link>
             </div>
 
@@ -80,9 +79,7 @@ export default function UpdateClient({ params }) {
 
                     <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
 
-                    <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
-                        Atualizar
-                    </button>
+                    <Buttons type={"submit"} titulo={"Atualizar"} />
 
                 </form>
             </div>

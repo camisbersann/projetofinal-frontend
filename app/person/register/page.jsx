@@ -5,6 +5,7 @@ import styles from "./register.module.css";
 import Link from "next/link";
 import { Header } from "@/app/components/header/Header";
 import InputRegisters from "@/app/components/Input/Input";
+import Buttons from "@/app/components/Button/Button";
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -52,9 +53,7 @@ export default function Register() {
 
             <div className={styles.actions}>
                 <Link href="/person">
-                    <button className={`${styles.button} ${styles.primaryButton}`}>
-                        Voltar para Membros
-                    </button>
+                    <Buttons titulo={"Voltar para Membros"} />
                 </Link>
             </div>
 
@@ -76,11 +75,7 @@ export default function Register() {
 
                     <InputRegisters type={"text"} varName={image} setVarName={setImage} label={'Imagem'}/>
 
-                   
-
-                    <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
-                        Enviar formulário
-                    </button>
+                    <Buttons type={"submit"}  titulo={"Enviar formulário"} />
 
                 </form>
             </div>

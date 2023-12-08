@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import styles from './page.module.css';
 import Link from "next/link";
 import { Header } from "./components/header/Header";
+import InputRegisters from "@/app/components/Input/Input";
+import Buttons from "./components/Button/Button";
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -53,9 +55,7 @@ export default function Register() {
 
             <div className={styles.actions}>
                 <Link href="/client/alreadyRegistered">
-                    <button className={`${styles.button} ${styles.primaryButton}`}>
-                        Registros
-                    </button>
+                    <Buttons titulo={"Registros"} />
                 </Link>
             </div>
 
@@ -75,10 +75,7 @@ export default function Register() {
 
                 <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
 
-                    <button type="submit" className={`${styles.button} ${styles.submitButton}`}>
-                        Registrar
-                    </button>
-
+                <Buttons type={"submit"} titulo={"Registrar"} />
                 </form>
             </div>
         </>
