@@ -29,7 +29,7 @@ export const Header = () => {
 
                 <div className={styles.d1}>
                     <Image src="/about-us-svgrepo-com.svg" alt="Sobre nós" width={23} height={23}></Image>
-                    <NavLink rota="/sobrenos" texto="" />
+                    <NavLink rota="/person" texto="" />
                 </div>
 
             </div>
