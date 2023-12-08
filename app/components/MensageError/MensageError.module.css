@@ -1,0 +1,11 @@
+.successMessage {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .errorMessage {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px;
+  }
