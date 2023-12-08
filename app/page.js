@@ -49,6 +49,8 @@ export default function Register() {
         fetchClient();
     }, []);
 
+    
+
     return (
         <>
             <Header />
