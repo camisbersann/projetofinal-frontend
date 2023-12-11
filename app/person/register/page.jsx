@@ -7,6 +7,7 @@ import { Header } from "@/app/components/header/Header";
 import InputRegisters from "@/app/components/Input/Input";
 import Buttons from "@/app/components/Button/Button";
 import Footer from "@/app/components/footer/Footer";
+import PopupMessage from "@/app/components/MensageError/MensageError";
 
 
 export default function Register() {
@@ -18,6 +19,8 @@ export default function Register() {
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [person, setPerson] = useState([]);
+    const [message, setMessage] = useState("");
+    const [statusMessage, setStatusMessage] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,8 +34,22 @@ export default function Register() {
             setPosition("");
             setDescription("");
             setImage("");
+            setMessage("Cadastro realizado com sucesso!");
+            setStatusMessage("success");
+
+            setTimeout(() => {
+                setMessage("");
+                setStatusMessage("");
+            }, 3000);
         } catch (error) {
             console.error("Error fetching data:", error);
+            setMessage("Erro ao cadastrar membro!");
+            setStatusMessage("error");
+
+            setTimeout(() => {
+                setMessage("");
+                setStatusMessage("");
+            }, 3000);
         }
     }
 
@@ -83,6 +100,7 @@ export default function Register() {
                             <Buttons type={"submit"} titulo={"Enviar formulário"} />
 
                         </form>
+                        <PopupMessage errorMessage={message} status={statusMessage} />
                     </div>
                 </div>
             </div>
