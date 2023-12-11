@@ -18,7 +18,7 @@ export default function Register() {
     const [cpf, setCpf] = useState("");
     const [cep, setCep] = useState("");
     const [client, setClient] = useState([]);
-    
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -52,49 +52,45 @@ export default function Register() {
         fetchClient();
     }, []);
 
-    
+
 
     return (
         <>
-        <Header />
+            <Header />
 
-        <div className={styles.body}>
-            <div className={styles.container}>
+            <div className={styles.body}>
+                <div className={styles.container}>
 
-                <div className={styles.actions}>
-                    <Link href="/client/alreadyRegistered">
-                        <Buttons titulo={"Voltar para Clientes"}/>
-                    </Link>
-                </div>
+                    <div className={styles.actions}>
+                        <Link href="/client/alreadyRegistered">
+                            <Buttons titulo={"Registros"} />
+                        </Link>
+                    </div>
 
-                <div className={styles.clientsContainer}>
-                    <h1 className={styles.mainText}>Cadastrar</h1>
+                    <div className={styles.personContainer}>
+                        <h1 className={styles.mainText}>Cadastro</h1>
 
+                        <form onSubmit={handleSubmit}>
+                            <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
 
-                    <form onSubmit={handleSubmit}>
-                        <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
+                            <InputRegisters type={"date"} varName={birthdate} setVarName={setBirthDate} label={'Data de Nascimento'} />
 
-                        <InputRegisters type={"date"} varName={birthdate} setVarName={setBirthDate} label={'Data de Nascimento'} />
+                            <InputRegisters type={"email"} varName={email} setVarName={setEmail} label={'Email'} />
 
-                        <InputRegisters type={"text"} varName={password} setVarName={setPassword} label={'Senha'} />
+                            <InputRegisters type={"text"} varName={password} setVarName={setPassword} label={'Senha'} />
 
-                        <InputRegisters type={"number"} varName={money} setVarName={setMoney} label={'Dinheiro'} />
+                            <InputRegisters type={"number"} varName={money} setVarName={setMoney} label={'Dinheiro'} />
 
-                        <InputRegisters type={"number"} varName={cpf} setVarName={setCpf} label={'CPF'} />
+                            <InputRegisters type={"number"} varName={cpf} setVarName={setCpf} label={'CPF'} />
 
-                        <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
+                            <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
 
-                        <div className={styles.box}>
-
-                        <Buttons type={"submit"} titulo={"Atualizar"} className={styles.button}/>
-
-                        </div>
-
-                    </form>
+                            <Buttons type={"submit"} titulo={"Registrar"} />
+                            </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <Footer />
-    </>
-    )
+            <Footer />
+        </>
+                )
 }
