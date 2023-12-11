@@ -31,7 +31,7 @@ export default function Register() {
             setCpf("");
             setCep("");
         } catch (error) {
-            console.error("Error fetching data:", error);
+            console.error(error);
         }
 
 
