@@ -9,8 +9,14 @@
 }
 
 .colors {
-    height: 100px;
+    height: 22vh;
     background-color: #005383;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    bottom: 0;
+    width: 100%;
 }
 
 #icons {
