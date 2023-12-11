@@ -20,7 +20,7 @@
 
 .btn {
     background-color: transparent;
-    border: 1px solid #00000020;
+    border: none;
     border-radius: .25rem;
     padding: 1rem 3rem;
     text-decoration: none; /* Remover sublinhado */

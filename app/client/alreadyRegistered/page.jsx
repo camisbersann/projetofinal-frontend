@@ -6,6 +6,7 @@ import { Header } from '@/app/components/header/Header';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Buttons from '@/app/components/Button/Button';
+import Footer from '@/app/components/footer/Footer';
 
 export default function Home() {
   const [array, setArray] = useState([]);
@@ -42,16 +43,18 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <main className={styles.fundo}>
       <Header />
+
+
+      <div className={styles.clientContainer}>
 
       <div className={styles.action}>
         <Link href="/">
           <Buttons titulo={"Voltar para Cadastro"} />
         </Link>
       </div>
-
-      <div className={styles.clientContainer}>
+      
         <h1 className={styles.mainText}>Clientes</h1>
 
         {client.length ? (
@@ -59,25 +62,28 @@ export default function Home() {
             {array.map((client) => (
               <div key={client.id} className={styles.clients}>
                 <div className={styles.clientInfo}>
-                  <p>ID: {client.id}</p>
-                  <p>Nome: {client.name}</p>
-                  <p>Data de Nascimento: {client.birthdate}</p>
-                  <p>Email: {client.email}</p>
-                  <p>Senha: {client.password}</p>
-                  <p>Dineheiro: {client.money}</p>
-                  <p>CPF: {client.cpf}</p>
-                  <p>CEP: {client.cep}</p>
+                  <p> <span className={styles.p}>Nome:</span> {client.name}</p>
+                  <p>  <span className={styles.p}> Data de Nascimento</span> : {client.birthdate}</p>
+                  <p  ><span className={styles.p}>Email:  </span> {client.email}</p>
+                  <p > <span className={styles.p}>Senha:  </span> {client.password}</p>
+                  <p > <span className={styles.p}>Dineheiro:  </span> {client.money}</p>
+                  <p  ><span className={styles.p}>CPF:  </span> {client.cpf}</p>
+                  <p > <span className={styles.p}>CEP:  </span> {client.cep}</p>
                 </div>
 
-                <div className={styles.buttons}>
-                <Buttons typeButton={'delete'} functionName={() => deletar(client.id)} titulo={<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 30 30">
-                        <path d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z"></path>
-                      </svg>} />
-                </div>
+                <div className={styles.btns}>
 
-                <div className={styles.buttons}>
-                <Buttons typeButton={'edit'} functionName={() => update(client.id)} titulo={<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                  <path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z" /></svg>} />
+                  <div className={styles.buttons}>
+                    <Buttons typeButton={'delete'} functionName={() => deletar(client.id)} titulo={<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 30 30">
+                      <path d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z"></path>
+                    </svg>} />
+                  </div>
+
+                  <div className={styles.buttons}>
+                    <Buttons typeButton={'edit'} functionName={() => update(client.id)} titulo={<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                      <path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z" /></svg>} />
+                  </div>
+
                 </div>
 
                 <div>
@@ -94,7 +100,9 @@ export default function Home() {
           <p>{array.message ? array.message : "Carregando..."}</p>
         )
         }
-      </div>
-    </>
+      </div >
+
+      <Footer/>
+    </main>
   )
 }
