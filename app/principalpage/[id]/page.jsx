@@ -119,7 +119,7 @@ export default function Home({ params }) {
         const clientResponse = await axios.get(`http://localhost:3000/api/client/${id}`);
         const addressResponse = await axios.get(`https://viacep.com.br/ws/${clientResponse.data.cep}/json/`);
         const nomedarua = addressResponse.data.logradouro.split(' ').join('+');
-        const geocodeResponse = await axios.get(`https://api.distancematrix.ai/maps/api/geocode/json?address=1600,${nomedarua},${addressResponse.data.localidade},${addressResponse.data.uf},Brazil&key=THy76mc8EB7DE1g30epsm4owSuuPhlcIUemw9hpBiKGmRZSs6GaeMd7VijKHQ1N4`);
+        const geocodeResponse = await axios.get(`https://api.distancematrix.ai/maps/api/geocode/json?address=1600,${nomedarua},${addressResponse.data.localidade},${addressResponse.data.uf},Brazil&key=0f0v7GxqJQkkTDnT9aikFthj0YXMgR6yp7SD25p8s8HO6DAX6FXHHOfULemcq3Oa`);
         setClientLocation(geocodeResponse.data);
       } catch (error) {
         console.error('Error fetching additional data:', error);
@@ -137,7 +137,7 @@ export default function Home({ params }) {
 
       try {
         const distanceResponse = await axios.get(
-          `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${clientLocation.result[0].geometry.location.lat},${clientLocation.result[0].geometry.location.lng}&destinations=${selected.coordenadasCapital.latitude},${selected.coordenadasCapital.longitude}&key=NUG8TVeZxS6TXWwQdv6bMZWWiwCfkKSV6E5IfZ3wdMsGRg7KSkm9jLMVYkGRM3xd`
+          `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${clientLocation.result[0].geometry.location.lat},${clientLocation.result[0].geometry.location.lng}&destinations=${selected.coordenadasCapital.latitude},${selected.coordenadasCapital.longitude}&key=7Q8BCOGrWmiVFeGeuhXRJD444KeE7iJ8p1wTWYd3kdqxdxPXQBkRr2E2WyzAneKo`
         );
         setDistance(distanceResponse.data.rows[0].elements[0].distance.text);
         setDrivingTime(distanceResponse.data.rows[0].elements[0].duration.text);
