@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Header } from "./components/header/Header";
 import InputRegisters from "@/app/components/Input/Input";
 import Buttons from "./components/Button/Button";
+import Footer from "./components/footer/Footer";
+
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -16,7 +18,7 @@ export default function Register() {
     const [cpf, setCpf] = useState("");
     const [cep, setCep] = useState("");
     const [client, setClient] = useState([]);
-    
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -50,40 +52,45 @@ export default function Register() {
         fetchClient();
     }, []);
 
-    
+
 
     return (
         <>
             <Header />
 
-            <div className={styles.actions}>
-                <Link href="/client/alreadyRegistered">
-                    <Buttons titulo={"Registros"} />
-                </Link>
+            <div className={styles.body}>
+                <div className={styles.container}>
+
+                    <div className={styles.actions}>
+                        <Link href="/client/alreadyRegistered">
+                            <Buttons titulo={"Registros"} />
+                        </Link>
+                    </div>
+
+                    <div className={styles.personContainer}>
+                        <h1 className={styles.mainText}>Cadastro</h1>
+
+                        <form onSubmit={handleSubmit}>
+                            <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
+
+                            <InputRegisters type={"date"} varName={birthdate} setVarName={setBirthDate} label={'Data de Nascimento'} />
+
+                            <InputRegisters type={"email"} varName={email} setVarName={setEmail} label={'Email'} />
+
+                            <InputRegisters type={"text"} varName={password} setVarName={setPassword} label={'Senha'} />
+
+                            <InputRegisters type={"number"} varName={money} setVarName={setMoney} label={'Dinheiro'} />
+
+                            <InputRegisters type={"number"} varName={cpf} setVarName={setCpf} label={'CPF'} />
+
+                            <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
+
+                            <Buttons type={"submit"} titulo={"Registrar"} />
+                            </form>
+                    </div>
+                </div>
             </div>
-
-            <div className={styles.personContainer}>
-                <h1 className={styles.mainText}>Cadastro</h1>
-
-                <form onSubmit={handleSubmit}>
-                <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
-
-                <InputRegisters type={"date"} varName={birthdate} setVarName={setBirthDate} label={'Data de Nascimento'} />
-
-                <InputRegisters type={"email"} varName={email} setVarName={setEmail} label={'Email'} />
-
-                <InputRegisters type={"text"} varName={password} setVarName={setPassword} label={'Senha'} />
-
-                <InputRegisters type={"number"} varName={money} setVarName={setMoney} label={'Dinheiro'} />
-
-                <InputRegisters type={"number"} varName={cpf} setVarName={setCpf} label={'CPF'} />
-
-                <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
-
-                <Buttons type={"submit"} titulo={"Registrar"} />
-                </form>
-            </div>
+            <Footer />
         </>
-
-    )
+                )
 }

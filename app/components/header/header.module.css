@@ -1,67 +1,78 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    height: 6.5rem;
-    background-color: #005383;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 6.5rem;
+  background-color: #005383;
 }
 
 .links {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width:auto;
-    height: 100%;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    text-decoration: none;
-    color: #000000;
-    font-size: 1.2rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border-bottom: 2px solid transparent;
-    padding-bottom: 10px;
-    cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .logoImage {
-    margin-right: 1rem; 
+  margin-right: 1rem;
 }
-
 
 .d1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width:auto;
-    height: 100%;
-    padding: 0 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  padding: 0 2rem;
 }
 
 
+@media (max-width: 576px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
 
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 12rem;
-    }
+  .links {
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    font-size: 1rem;
+  }
 
-    .links {
-        margin-top: 1rem;
-        font-size: 1rem;
-    }
+  .logoImage {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
 
-    .logoImage {
-        margin-left: 25%; 
-    }
+  .d1 {
+    padding: 0;
+  }
+}
 
-    .d1 {
-        margin-top: 1rem;
-        width: 95px;
-    }
+@media (min-width: 576px) and (max-width: 992px) {
+  .header {
+    padding: 0.5rem;
+  }
+
+  .links {
+    font-size: 1rem;
+  }
 }
