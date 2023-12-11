@@ -1,21 +1,26 @@
-.button {
-    display: flex;
+.btn {
+    background-color: transparent;
+    border: 1px solid #00000020;
+    border-image: none 100% 1 0 stretch;
+    border-radius: .25rem;
+    color: currentcolor;
+    display: inline-flex;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    transition: all .14s ease-out;
+    cursor: pointer;
+    position: relative;
     justify-content: center;
     align-items: center;
-    width: 54px;
-    height: 54px;
-    margin: 0 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.5s ease-in-out;
-    border: none;
-    cursor: pointer;
+    font-size: .85rem;
+    color: black;
+    margin: 1rem 0;
 }
 
-.button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    border:none;
+.btn:hover:not(:active) {
+    box-shadow: .30rem .30rem 0 rgb(0 0 0);
+    transform: translate(-.25rem, -.25rem);
+    cursor: pointer;
 }
 
 .deleteButton {
@@ -34,17 +39,21 @@
 .deleteButton::before {
     content: "";
     position: absolute;
-    bottom: 0; /* Mudança aqui: começar da parte inferior */
+    bottom: 0;
+    /* Mudança aqui: começar da parte inferior */
     left: 0;
-    width: 100%; /* Mudança aqui: começar com a largura total */
+    width: 100%;
+    /* Mudança aqui: começar com a largura total */
     height: 0;
     background: linear-gradient(to top, #ff0000, transparent);
     z-index: -1;
-    transition: height 0.3s ease; /* Mudança aqui: transição da altura */
+    transition: height 0.3s ease;
+    /* Mudança aqui: transição da altura */
 }
 
 .deleteButton:hover::before {
-    height: 100%; /* Mudança aqui: aumentar a altura para 100% no hover */
+    height: 100%;
+    /* Mudança aqui: aumentar a altura para 100% no hover */
 }
 
 /* Efeito de hover para o botão do Instagram (cores do Instagram) */
@@ -84,7 +93,8 @@
 
 /* Cor fixa para os botões durante a alternância */
 .buttons.alternate .button {
-    background-color: #4CAF50; /* Cor fixa para os botões em modo alternado */
+    background-color: #4CAF50;
+    /* Cor fixa para os botões em modo alternado */
 }
 
 @media only screen and (max-width: 600px) {

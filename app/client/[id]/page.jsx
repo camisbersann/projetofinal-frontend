@@ -84,7 +84,11 @@ export default function UpdateClient({ params }) {
 
                             <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
 
+                            <div className={styles.box}>
+
                             <Buttons type={"submit"} titulo={"Atualizar"} className={styles.button}/>
+
+                            </div>
 
                         </form>
                     </div>
