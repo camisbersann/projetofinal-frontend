@@ -81,14 +81,27 @@ export default function Home({ params }) {
     setShowPopup(true);
     const numberKM = parseFloat(distance.split(' ')[0]);
     const numberTime = parseFloat(drivingTime.split(' ')[0]);
-    if (transport === 'taxi') {
-      setPrice((numberKM / 1000 * 250).toFixed(2).replace('.', ','));
-    }
-    if (transport === 'onibus') {
-      setPrice((numberKM / 1000 * 350).toFixed(2).replace('.', ','));
-    }
-    if (transport === 'aviao') {
-      setPrice((numberKM / 1000 * 950).toFixed(2).replace('.', ','));
+
+    if (userClient.age >= 60) {
+      if (transport === 'taxi') {
+        setPrice((numberKM / 1000 * 250 * 0.5).toFixed(2).replace('.', ','));
+      }
+      if (transport === 'onibus') {
+        setPrice((numberKM / 1000 * 350 * 0.5).toFixed(2).replace('.', ','));
+      }
+      if (transport === 'aviao') {
+        setPrice((numberKM / 1000 * 950 * 0.5).toFixed(2).replace('.', ','));
+      }
+    } else {
+      if (transport === 'taxi') {
+        setPrice((numberKM / 1000 * 250).toFixed(2).replace('.', ','));
+      }
+      if (transport === 'onibus') {
+        setPrice((numberKM / 1000 * 350).toFixed(2).replace('.', ','));
+      }
+      if (transport === 'aviao') {
+        setPrice((numberKM / 1000 * 950).toFixed(2).replace('.', ','));
+      }
     }
   };
 
