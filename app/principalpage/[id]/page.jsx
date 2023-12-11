@@ -26,6 +26,8 @@ export default function Home({ params }) {
   const [oldTravels, setOldTravels] = useState([]);
   const [logged, setLogged] = useState(false);
   const [inputPassword, setInputPassword] = useState("");
+  const [regions, setRegions] = useState(['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul']);
+  const [selectedRegion, setSelectedRegion] = useState("Todos");
 
   const { id } = params;
 
@@ -198,10 +200,54 @@ export default function Home({ params }) {
           </div>
         ) : (
           <>
+            <div>
+              <h2>Escolha a região que deseja viajar</h2>
+              <select
+                className={styles.select}
+                value={selectedRegion}
+                onChange={(e) => setSelectedRegion(e.target.value)}
+              >
+                <option value="Todos">Todos</option>
+                <option value="Norte">Norte</option>
+                <option value="Nordeste">Nordeste</option>
+                <option value="Centro-Oeste">Centro-Oeste</option>
+                <option value="Sudeste">Sudeste</option>
+                <option value="Sul">Sul</option>
+              </select>
+            </div>
             <div className={styles.travelList}>
-              {travels01.map((travel) => (
-                <TravelCard key={travel.id} travel={travel} handleTravelClick={handleTravelClick} />
-              ))}
+              {
+                selectedRegion == "Todos" ? (<>
+                  {regions.map((region) => (
+                    <div key={region} className={styles.regionCard}>
+                      <h2>{region}</h2>
+                      <div className={styles.travelCards}>
+                        {travels01.map((travel) => {
+                          if (travel.region === region) {
+                            return (
+                              <TravelCard key={travel.id} travel={travel} handleTravelClick={handleTravelClick} />
+                            );
+                          }
+                          return null;
+                        })}
+                      </div>
+                    </div>
+                  ))}</>) : (<>
+                    <div className={styles.regionCard}>
+                      <h2>{selectedRegion}</h2>
+                      <div className={styles.travelCards}>
+                        {travels01.map((travel) => {
+                          if (travel.region === selectedRegion) {
+                            return (
+                              <TravelCard key={travel.id} travel={travel} handleTravelClick={handleTravelClick} />
+                            );
+                          }
+                          return null;
+                        })}
+                      </div>
+                    </div>
+                  </>)
+              }
             </div>
 
             {selectedTravel && (
@@ -230,6 +276,20 @@ export default function Home({ params }) {
                 </div>
               </div>
             )}
+            <div>
+              <h2>Viagens compradas</h2>
+              <div className={styles.travelList}>
+                {oldTravels.map((travel) => (
+                  <div key={travel.id} className={styles.travelCard}>
+                    <h3>{travel.name}</h3>
+                    <p>Distância: {travel.distance}</p>
+                    <p>Tempo de viagem: {travel.drivingTime}</p>
+                    <p>Transporte: {travel.transport}</p>
+                    <p>Preço: {travel.price}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </>
         )
       }
