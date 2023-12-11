@@ -51,9 +51,10 @@ export default function Register() {
 
     return (
         <>
-            <Header />
 
+<Header />
             <div className={styles.body}>
+                
                 <div className={styles.container}>
 
                     <div className={styles.actions}>
@@ -85,8 +86,9 @@ export default function Register() {
                         </form>
                     </div>
                 </div>
+               
             </div>
-            <Footer />
+ <Footer />
         </>
 
     )

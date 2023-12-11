@@ -80,7 +80,7 @@
   background-repeat: space;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 @media screen and (max-width: 768px) {
