@@ -1,0 +1,10 @@
+.travelList {
+    display: flex;
+    flex-direction: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
