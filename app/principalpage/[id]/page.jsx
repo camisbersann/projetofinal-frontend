@@ -24,25 +24,8 @@ export default function Home({ params }) {
   const [cpf, setCpf] = useState("");
   const [cep, setCep] = useState("");
   const [oldTravels, setOldTravels] = useState([]);
-  const [passwordAttempts, setPasswordAttempts] = useState(0);
-  const [enteredPassword, setEnteredPassword] = useState("");
-  const [isPasswordCorrect, setIsPasswordCorrect] = useState(true);
 
   const { id } = params;
-
-  const handlePasswordSubmit = () => {
-    const isCorrect = enteredPassword === userClient.password;
-
-    if (isCorrect) {
-      setIsPasswordCorrect(true);
-    } else {
-      setPasswordAttempts(passwordAttempts + 1);
-
-      if (passwordAttempts + 1 === 3) {
-        setIsPasswordCorrect(false);
-      }
-    }
-  };
 
   const handleBuyTravel = async () => {
     try {
@@ -67,8 +50,8 @@ export default function Home({ params }) {
       setDrivingTime(null);
       setPrice(null);
 
-      // Recarrega a página
-      window.location.reload();
+      // Opcional: Pode adicionar uma mensagem de sucesso ou redirecionar o usuário para outra página.
+      // Exemplo: history.push('/minhas-viagens');
     } catch (error) {
       console.error('Erro ao comprar a viagem:', error);
       // Opcional: Adicione uma mensagem de erro para o usuário.
