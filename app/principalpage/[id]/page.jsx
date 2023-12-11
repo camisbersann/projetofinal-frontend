@@ -24,6 +24,8 @@ export default function Home({ params }) {
   const [cpf, setCpf] = useState("");
   const [cep, setCep] = useState("");
   const [oldTravels, setOldTravels] = useState([]);
+  const [logged, setLogged] = useState(false);
+  const [inputPassword, setInputPassword] = useState("");
 
   const { id } = params;
 
@@ -50,14 +52,30 @@ export default function Home({ params }) {
       setDrivingTime(null);
       setPrice(null);
 
-      // Opcional: Pode adicionar uma mensagem de sucesso ou redirecionar o usuário para outra página.
-      // Exemplo: history.push('/minhas-viagens');
+      attuserClient()
     } catch (error) {
       console.error('Erro ao comprar a viagem:', error);
       // Opcional: Adicione uma mensagem de erro para o usuário.
     }
   }
-  
+
+  async function attuserClient() {
+    try {
+      const response = await axios.get(`/api/client/${id}`);
+      setUserClient(response.data);
+      setName(response.data.name)
+      setBirthDate(response.data.birthdate)
+      setEmail(response.data.email)
+      setPassword(response.data.password)
+      setMoney(response.data.money)
+      setCpf(response.data.cpf)
+      setCep(response.data.cep)
+      setOldTravels(response.data.travels)
+    } catch (error) {
+      console.error('Error fetching user client:', error);
+    }
+  }
+
   const handleTransportButtonClick = (transport) => {
     setSelectedTransport(transport);
     setShowPopup(true);
@@ -150,38 +168,58 @@ export default function Home({ params }) {
   return (
     <div className={styles.container}>
       <Header />
-      <div className={styles.travelList}>
-        {travels01.map((travel) => (
-          <TravelCard key={travel.id} travel={travel} handleTravelClick={handleTravelClick} />
-        ))}
-      </div>
-
-      {selectedTravel && (
-        <div className={styles.selectedTravel}>
-          <h3>Viagem Selecionada:</h3>
-          <p>{selectedTravel.name}</p>
-          <p>{distance}</p>
-          <p>{drivingTime}</p>
-
-          <button onClick={() => handleTransportButtonClick('taxi')}>Taxi</button>
-          <button onClick={() => handleTransportButtonClick('onibus')}>Ônibus</button>
-          <button onClick={() => handleTransportButtonClick('aviao')}>Avião</button>
-        </div>
-      )}
-
-      {showPopup && (
-        <div className={styles.popup}>
-          <h3>Viagem para {selectedTravel.name} de {selectedTransport}</h3>
-          <h4>Preço:</h4>
-          {selectedTransport === 'taxi' && <p>Taxi: R$ {price}</p>}
-          {selectedTransport === 'onibus' && <p>Ônibus: R$ {price}</p>}
-          {selectedTransport === 'aviao' && <p>Avião: R$ {price}</p>}
-          <div>
-          <button onClick={handleClosePopup}>Fechar</button>
-          <button onClick={handleBuyTravel} className={styles.comprartravel}>Comprar viagem</button>
+      {
+        !logged ? (
+          <div className={styles.login}>
+            <div className={styles.login__container}>
+              <h1 className={styles.login__title}>Login</h1>
+              <input className={styles.login__input} type="password" placeholder="Senha" onChange={(e) => setInputPassword(e.target.value)} />
+              <button className={styles.login__button} onClick={() => {
+                if (inputPassword === password) {
+                  setLogged(true);
+                } else {
+                  alert("Senha incorreta");
+                }
+              }}>Entrar</button>
+            </div>
           </div>
-        </div>
-      )}
+        ) : (
+          <>
+            <div className={styles.travelList}>
+              {travels01.map((travel) => (
+                <TravelCard key={travel.id} travel={travel} handleTravelClick={handleTravelClick} />
+              ))}
+            </div>
+
+            {selectedTravel && (
+              <div className={styles.selectedTravel}>
+                <h3>Viagem Selecionada:</h3>
+                <p>{selectedTravel.name}</p>
+                <p>{distance}</p>
+                <p>{drivingTime}</p>
+
+                <button onClick={() => handleTransportButtonClick('taxi')}>Taxi</button>
+                <button onClick={() => handleTransportButtonClick('onibus')}>Ônibus</button>
+                <button onClick={() => handleTransportButtonClick('aviao')}>Avião</button>
+              </div>
+            )}
+
+            {showPopup && (
+              <div className={styles.popup}>
+                <h3>Viagem para {selectedTravel.name} de {selectedTransport}</h3>
+                <h4>Preço:</h4>
+                {selectedTransport === 'taxi' && <p>Taxi: R$ {price}</p>}
+                {selectedTransport === 'onibus' && <p>Ônibus: R$ {price}</p>}
+                {selectedTransport === 'aviao' && <p>Avião: R$ {price}</p>}
+                <div>
+                  <button onClick={handleClosePopup}>Fechar</button>
+                  <button onClick={handleBuyTravel} className={styles.comprartravel}>Comprar viagem</button>
+                </div>
+              </div>
+            )}
+          </>
+        )
+      }
       <Footer />
     </div>
   );
