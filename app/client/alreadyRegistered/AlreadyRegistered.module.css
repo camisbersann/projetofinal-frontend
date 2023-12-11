@@ -83,4 +83,6 @@
   background-image: url("https://th.bing.com/th/id/R.799ee331d8689f3e2c7e35766642db79?rik=jnsP9oMvfVKxTw&pid=ImgRaw&r=0");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
