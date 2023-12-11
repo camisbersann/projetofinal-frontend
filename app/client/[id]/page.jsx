@@ -57,13 +57,13 @@ export default function UpdateClient({ params }) {
     return (
         <>
             <Header />
-            <div className={styles.body}>
 
+            <div className={styles.body}>
                 <div className={styles.container}>
 
                     <div className={styles.actions}>
                         <Link href="/client/alreadyRegistered">
-                            <Buttons titulo={"Voltar para Clientes"} />
+                            <Buttons titulo={"Voltar para Clientes"}/>
                         </Link>
                     </div>
 
