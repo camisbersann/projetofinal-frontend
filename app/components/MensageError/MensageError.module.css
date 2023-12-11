@@ -1,13 +1,17 @@
 .successMessage {
   background-color: #28a745;
   color: #fff;
-  padding: 10px;
+  padding: 1rem;
+  width:100%;
+  border-radius:10px;
 }
 
 .errorMessage {
   background-color: #dc3545;
   color: #fff;
-  padding: 10px;
+  padding: 1rem;
+  width:100%;
+  border-radius:10px;
 }
 
 .notShow {
