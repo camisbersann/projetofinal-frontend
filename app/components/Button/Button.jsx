@@ -23,9 +23,11 @@ const Buttons = ({ functionName, titulo, type, typeButton }) => {
         )
     } else {
         return (
-            <button onClick={functionName} type={type} className={`${styles.button}`}>
+            <div className={styles.box}>
+            <button onClick={functionName} type={type} className={`${styles.btn}`}>
                 {titulo}
             </button>
+            </div>
         )
     }
 };

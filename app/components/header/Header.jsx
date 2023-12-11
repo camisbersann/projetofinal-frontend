@@ -11,25 +11,21 @@ export const Header = () => {
 
 
                 <div className={styles.d1}>
-                    <Image src="/register-svgrepo-com (1).svg" alt="Cadastro" width={21} height={21}></Image>
-                    <NavLink rota="/" texto="" />
+                    <NavLink rota="/" imagem={"/register-svgrepo-com (1).svg"}/>
                 </div>
 
 
                 <div className={styles.d1}>
-                    <Image src="/airplane-svgrepo-com.svg" alt="Viagens" width={21} height={21}></Image>
-                    <NavLink rota="/viagens" texto="" />
+                    <NavLink rota="/principalpage" imagem={"/airplane-svgrepo-com.svg"}/>
                 </div>
 
                 <div className={styles.d1}>
-                    <Image src="/api-page-svgrepo-com.svg" alt="Documentation API" width={23} height={23}></Image>
-                    <NavLink rota="/API" texto="" />
+                    <NavLink rota="/api" imagem={"/api-page-svgrepo-com.svg"}/>
                 </div>
 
 
                 <div className={styles.d1}>
-                    <Image src="/about-us-svgrepo-com.svg" alt="Sobre nós" width={23} height={23}></Image>
-                    <NavLink rota="/sobrenos" texto="" />
+                    <NavLink rota="/person" imagem={"/about-us-svgrepo-com.svg"} />
                 </div>
 
             </div>
