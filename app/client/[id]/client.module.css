@@ -6,8 +6,12 @@
     color: rgb(0, 0, 0);
     font-family: "Arial" sans-serif;
     background-image: url(https://blog.123milhas.com/wp-content/uploads/2022/10/viagem-de-carro-para-o-nordeste-conexao123-1.jpg);
-  }
-  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
 .container {
     padding-top: 25px;
     display: flex;
