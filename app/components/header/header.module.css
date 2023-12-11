@@ -76,13 +76,3 @@
     font-size: 1rem;
   }
 }
-
-@media (min-width: 992px) {
-  .header {
-    height: 6.5rem;
-  }
-
-  .links {
-    font-size: 1.2rem;
-  }
-}
