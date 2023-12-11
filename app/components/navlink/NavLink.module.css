@@ -8,16 +8,12 @@
     padding: 0 1rem;
     box-sizing: border-box;
     text-decoration: none;
-    color: #fff;
     font-size: 1.2rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    border-bottom: 2px solid transparent;
 }
 
-.links a:hover {
-    border-bottom: 2px solid #fff;
-}
+
 
 .slideInFromRight {
     animation: 1.5s ease-out 0s 1 slideInFromRight;
