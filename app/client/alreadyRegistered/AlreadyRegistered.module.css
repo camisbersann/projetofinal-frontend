@@ -3,7 +3,7 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 45%;
+  width: 55%;
   margin: 0 auto;
 }
 
@@ -44,10 +44,6 @@
   cursor: pointer;
   margin-left: 10px;
   transition: fill 0.3s ease;
-}
-
-.buttons svg:hover {
-  fill: #ff0000;
 }
 
 .btns {
