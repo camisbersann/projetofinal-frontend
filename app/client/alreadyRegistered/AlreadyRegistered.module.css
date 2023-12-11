@@ -4,7 +4,7 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 55%;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
 .mainText {
@@ -77,8 +77,15 @@
 
 .fundo {
   background-image: url("https://th.bing.com/th/id/R.799ee331d8689f3e2c7e35766642db79?rik=jnsP9oMvfVKxTw&pid=ImgRaw&r=0");
-  background-repeat: no-repeat;
+  background-repeat:space;
   background-size: cover;
   background-position: center;
   height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .fundo {
+    background-image: url("https://mobimg.b-cdn.net/v3/fetch/53/530ee413e3927aaaafa06ffa35621d0d.jpeg?h=1000");
+    height: fit-content;
+  }
 }
