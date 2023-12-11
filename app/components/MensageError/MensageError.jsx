@@ -17,7 +17,7 @@ const PopupMessage =({errorMessage,status}) => {
         )
     } else {
         return (
-            <div className={styles.errorMessage}>
+            <div className={styles.notShow}>
                 <p>{errorMessage}</p>
             </div>
         )
