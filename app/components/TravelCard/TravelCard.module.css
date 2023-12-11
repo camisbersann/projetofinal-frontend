@@ -4,6 +4,7 @@
     position: relative;
     cursor: pointer;
     transition: transform 0.3s ease-out;
+    margin:1rem;
   }
   
   .travelCard:hover {
