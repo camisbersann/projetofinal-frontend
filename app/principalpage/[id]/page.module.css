@@ -8,3 +8,38 @@
     box-sizing: border-box;
     background-color: #f5f5f5;
 }
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+  
+  .popup h3 {
+    margin-bottom: 10px;
+  }
+  
+  .popup p {
+    margin: 5px 0;
+  }
+  
+  .popup button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .popup button:hover {
+    background-color: #0056b3;
+  }
+  
+  .comprartravel {
+    background-color: #0f5a00;
+  }

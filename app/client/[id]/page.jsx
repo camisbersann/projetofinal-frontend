@@ -17,6 +17,7 @@ export default function UpdateClient({ params }) {
     const [money, setMoney] = useState("");
     const [cpf, setCpf] = useState("");
     const [cep, setCep] = useState("");
+    const [travels, setTravels] = useState([]);
     const router = useRouter();
     const { id } = params;
 
@@ -32,6 +33,7 @@ export default function UpdateClient({ params }) {
                 setMoney(client.money)
                 setCpf(client.cpf)
                 setCep(client.cep)
+                setTravels(client.travels)
             } catch (error) {
                 console.error("Error fetching client details:", error)
             }
@@ -47,7 +49,7 @@ export default function UpdateClient({ params }) {
         e.preventDefault();
 
         try {
-            await axios.put(`/api/client/${id}`, { name, birthdate, email, password, money, cpf, cep });
+            await axios.put(`/api/client/${id}`, { name, birthdate, email, password, money, cpf, cep, travels });
             router.push(`/client/alreadyRegistered`);
         } catch (error) {
             console.error("Error updating client:", error);
