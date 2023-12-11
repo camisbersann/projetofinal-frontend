@@ -1,0 +1,115 @@
+.all {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.title {
+  text-align: center;
+  padding: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+.h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: 16px;
+  color: #585353;
+  margin-bottom: 20px;
+}
+
+.allText {
+  margin-bottom: 20px;
+}
+
+.top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.top:hover {
+  background-color: #555;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 5%;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.allText {
+  width: 80%;
+  margin-top: 0.2rem;
+  margin-bottom: 5%;
+  padding: 5%;
+  border-left: #000000 solid 2px;
+}
+
+.c2 {
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 5%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .content {
+    display: none;
+  }
+
+  .allText {
+    width: 100%;
+    margin-top: 0.2rem;
+    margin-bottom: 5%;
+    padding: 5%;
+    border-left: #fff solid 2px;
+  }
+}
