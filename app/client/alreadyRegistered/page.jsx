@@ -86,6 +86,12 @@ export default function Home() {
 
                 </div>
 
+                <div>
+                  <Link href={`/principalpage/${client.id}`}>
+                    <Buttons titulo={"Ver mais"} />
+                  </Link>
+                  </div>
+
               </div>
 
             ))}

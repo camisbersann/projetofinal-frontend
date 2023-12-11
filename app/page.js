@@ -16,6 +16,7 @@ export default function Register() {
     const [cpf, setCpf] = useState("");
     const [cep, setCep] = useState("");
     const [client, setClient] = useState([]);
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();

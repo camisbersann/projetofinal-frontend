@@ -20,7 +20,7 @@ export const Header = () => {
                 </div>
 
                 <div className={styles.d1}>
-                    <NavLink rota="/api" imagem={"/api-page-svgrepo-com.svg"}/>
+                    <NavLink rota="/documentacao" imagem={"/api-page-svgrepo-com.svg"}/>
                 </div>
 
 
