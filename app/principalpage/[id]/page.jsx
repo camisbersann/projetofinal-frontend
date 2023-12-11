@@ -5,6 +5,9 @@ import styles from './page.module.css';
 import { Header } from '@/app/components/header/Header';
 import Footer from '@/app/components/footer/Footer';
 import TravelCard from '@/app/components/TravelCard/TravelCard';
+import Login from '@/app/components/Login/Login';
+import RegionSelector from '@/app/components/RegionSelector/RegionSelector';
+import Popup from '@/app/components/Popup/Popup';
 
 export default function Home({ params }) {
   const [travels01, setTravels01] = useState([]);
@@ -185,36 +188,14 @@ export default function Home({ params }) {
       <Header />
       {
         !logged ? (
-          <div className={styles.login}>
-            <div className={styles.login__container}>
-              <h1 className={styles.login__title}>Login</h1>
-              <input className={styles.login__input} type="password" placeholder="Senha" onChange={(e) => setInputPassword(e.target.value)} />
-              <button className={styles.login__button} onClick={() => {
-                if (inputPassword === password) {
-                  setLogged(true);
-                } else {
-                  alert("Senha incorreta");
-                }
-              }}>Entrar</button>
-            </div>
-          </div>
+          <Login setInputPassword={setInputPassword} password={password} setLogged={setLogged} passwordInput={inputPassword} />
         ) : (
           <>
-            <div>
-              <h2>Escolha a região que deseja viajar</h2>
-              <select
-                className={styles.select}
-                value={selectedRegion}
-                onChange={(e) => setSelectedRegion(e.target.value)}
-              >
-                <option value="Todos">Todos</option>
-                <option value="Norte">Norte</option>
-                <option value="Nordeste">Nordeste</option>
-                <option value="Centro-Oeste">Centro-Oeste</option>
-                <option value="Sudeste">Sudeste</option>
-                <option value="Sul">Sul</option>
-              </select>
-            </div>
+            <RegionSelector
+              selectedRegion={selectedRegion}
+              setSelectedRegion={setSelectedRegion}
+              regions={regions}
+            />
             <div className={styles.travelList}>
               {
                 selectedRegion == "Todos" ? (<>
@@ -264,18 +245,15 @@ export default function Home({ params }) {
             )}
 
             {showPopup && (
-              <div className={styles.popup}>
-                <h3>Viagem para {selectedTravel.name} de {selectedTransport}</h3>
-                <h4>Preço:</h4>
-                {selectedTransport === 'taxi' && <p>Taxi: R$ {price}</p>}
-                {selectedTransport === 'onibus' && <p>Ônibus: R$ {price}</p>}
-                {selectedTransport === 'aviao' && <p>Avião: R$ {price}</p>}
-                <div>
-                  <button onClick={handleClosePopup}>Fechar</button>
-                  <button onClick={handleBuyTravel} className={styles.comprartravel}>Comprar viagem</button>
-                </div>
-              </div>
+              <Popup
+                selectedTravel={selectedTravel}
+                selectedTransport={selectedTransport}
+                price={price}
+                handleClosePopup={handleClosePopup}
+                handleBuyTravel={handleBuyTravel}
+              />
             )}
+
             <div>
               <h2>Viagens compradas</h2>
               <div className={styles.travelList}>
