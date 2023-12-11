@@ -38,10 +38,11 @@
     width: auto;
     height: 100%;
     padding: 0 2rem;
+
   }
-  
-  
-  @media (max-width: 768px) {
+
+
+@media (max-width: 768px) {
     .header {
       flex-direction: column;
       justify-content: center;
