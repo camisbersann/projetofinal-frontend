@@ -16,10 +16,7 @@
     display: inline-flex;
     text-align: center;
     width: 100%;
-
 }
-
-    
 
 .btn:hover:not(:active) {
     box-shadow: .30rem .30rem 0 rgb(0 0 0);
