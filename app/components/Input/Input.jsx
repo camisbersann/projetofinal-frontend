@@ -3,7 +3,10 @@ import styles from './Input.module.css'
 
 const InputRegisters = ({ type, varName, setVarName, label }) => {
     return (
-        <div className={styles.formGroup}>
+
+       
+
+        <div className={styles.group}>
             <label className={styles.label} htmlFor={varName}>
                 {label}:
             </label>
@@ -13,6 +16,9 @@ const InputRegisters = ({ type, varName, setVarName, label }) => {
               onChange= {(e) => setVarName(e.target.value)}
              />
         </div>
+
+
+
     )
 }
 

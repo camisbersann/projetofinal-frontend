@@ -6,6 +6,8 @@ import styles from "./client.module.css";
 import { Header } from "@/app/components/header/Header";
 import Link from "next/link";
 import Buttons from "@/app/components/Button/Button";
+import InputRegisters from "@/app/components/Input/Input";
+import Footer from "@/app/components/footer/Footer";
 
 export default function UpdateClient({ params }) {
     const [name, setName] = useState("");
@@ -55,35 +57,40 @@ export default function UpdateClient({ params }) {
     return (
         <>
             <Header />
+            <div className={styles.body}>
 
-            <div className={styles.actions}>
-                <Link href="/client/alreadyRegistered">
-                    <Buttons titulo={"Voltar para Clientes"} />
-                </Link>
+                <div className={styles.container}>
+
+                    <div className={styles.actions}>
+                        <Link href="/client/alreadyRegistered">
+                            <Buttons titulo={"Voltar para Clientes"} />
+                        </Link>
+                    </div>
+
+                    <div className={styles.clientsContainer}>
+                        <h1 className={styles.mainText}>Atualizar</h1>
+
+
+                        <form onSubmit={handleSubmit}>
+                            <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
+
+                            <InputRegisters type={"date"} varName={birthdate} setVarName={setBirthDate} label={'Data de Nascimento'} />
+
+                            <InputRegisters type={"text"} varName={password} setVarName={setPassword} label={'Senha'} />
+
+                            <InputRegisters type={"number"} varName={money} setVarName={setMoney} label={'Dinheiro'} />
+
+                            <InputRegisters type={"number"} varName={cpf} setVarName={setCpf} label={'CPF'} />
+
+                            <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
+
+                            <Buttons type={"submit"} titulo={"Atualizar"} className={styles.button}/>
+
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <div className={styles.clientsContainer}>
-                <h1 className={styles.mainText}>Atualizar</h1>
-
-
-                <form onSubmit={handleSubmit}>
-                    <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
-
-                    <InputRegisters type={"date"} varName={birthdate} setVarName={setBirthDate} label={'Data de Nascimento'} />
-
-                    <InputRegisters type={"text"} varName={password} setVarName={setPassword} label={'Senha'} />
-
-                    <InputRegisters type={"number"} varName={money} setVarName={setMoney} label={'Dinheiro'} />
-
-                    <InputRegisters type={"number"} varName={cpf} setVarName={setCpf} label={'CPF'} />
-
-                    <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
-
-                    <Buttons type={"submit"} titulo={"Atualizar"} />
-
-                </form>
-            </div>
+            <Footer />
         </>
-
     )
 }
