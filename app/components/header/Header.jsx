@@ -6,7 +6,7 @@ import Image from 'next/image';
 export const Header = () => {
     return (
         <div className={styles.header}>
-            <img src="/logoCodeBreakers.png" alt="Logo da Equipe" width={160} height={100} className={styles.logoImage} />
+            <img src="/LogoCodeBreakers.png" alt="Logo da Equipe" width={160} height={100} className={styles.logoImage} />
             <div className={styles.links}>
 
 

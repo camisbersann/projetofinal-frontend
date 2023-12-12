@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <div className={styles.colors}>
       <div className={styles.a}>
-      <img src="/logoCodeBreakers.png" alt="Logo da Equipe" width={160} height={100} className={styles.logoImage} />
+      <img src="/LogoCodeBreakers.png" alt="Logo da Equipe" width={160} height={100} className={styles.logoImage} />
 
         <div className={styles.a} id={styles.text}>
           <h2>Code Breakers</h2>
