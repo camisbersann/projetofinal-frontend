@@ -6,7 +6,7 @@ const NavLink = ({rota, imagem}) => {
     return (
         <div className={styles.links}>
             <Link href={rota} className={styles.slideInFromRight}>
-                <Image src={imagem} width={21} height={21}/>
+                <Image src={imagem} width={21} height={21} alt="Icon"/>
             </Link>
         </div>
     );

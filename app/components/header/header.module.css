@@ -52,8 +52,6 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    height: auto;
-    padding: 0;
     font-size: 1rem;
   }
 
@@ -63,16 +61,8 @@
   }
 
   .d1 {
-    padding: 0;
+    padding: 1rem;
+    height: 0.5rem;
   }
 }
 
-@media (min-width: 576px) and (max-width: 992px) {
-  .header {
-    padding: 0.5rem;
-  }
-
-  .links {
-    font-size: 1rem;
-  }
-}
