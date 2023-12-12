@@ -66,3 +66,13 @@
     padding: 0;
   }
 }
+
+@media (min-width: 576px) and (max-width: 992px) {
+  .header {
+    padding: 0.5rem;
+  }
+
+  .links {
+    font-size: 1rem;
+  }
+}
