@@ -6,11 +6,11 @@ const Popup = ({ selectedTravel, selectedTransport, price, handleClosePopup, han
         <div className={styles.popup}>
             <h3>Viagem para {selectedTravel.name} de {selectedTransport}</h3>
             <h4>Preço:</h4>
-            {selectedTransport === 'taxi' && <p>Taxi: R$ {price}</p>}
+            {selectedTransport === 'taxi' && <p>Táxi: R$ {price}</p>}
             {selectedTransport === 'onibus' && <p>Ônibus: R$ {price}</p>}
             {selectedTransport === 'aviao' && <p>Avião: R$ {price}</p>}
-            <div>
-                <button onClick={handleClosePopup}>Fechar</button>
+            <div className={styles.buttons}>
+                <button onClick={handleClosePopup} className={styles.fechartravel}>Fechar</button>
                 <button onClick={handleBuyTravel} className={styles.comprartravel}>Comprar viagem</button>
             </div>
 

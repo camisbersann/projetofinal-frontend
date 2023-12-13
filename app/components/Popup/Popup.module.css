@@ -21,28 +21,114 @@
     margin: 5px 0;
 }
 
+.buttons{
+    padding: 1rem;
+}
+
 .fechartravel {
-    background-color: #ff0000;
-    color: #fff;
-    border: none;
-    padding: 10px;
+    --color: #b30000;
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
-    margin:0.2rem;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 12px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
+    margin-right: 0.5rem;
 }
 
 .fechartravel:hover {
-    background-color: #b30000;
+    color: #f06565;
+}
+
+.fechartravel::before, .fechartravel::after {
+    content: '';
+    display: block;
+    width: 3.125rem;
+    height: 3.125rem;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
+}
+.fechartravel::before {
+    top: -1em;
+    left: -1em;
+}
+
+.fechartravel::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.fechartravel:hover::before, .fechartravel:hover::after {
+    height: 25.625rem;
+    width: 25.625rem;
+}
+
+.fechartravel:active {
+    filter: brightness(.8);
 }
 
 .comprartravel {
-    background-color: #0028c9;
-    color: #fff;
-    border: none;
-    padding: 10px;
+    --color: #0028c9;
+    padding: 0.8em 0.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
-    margin:0.2rem;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 12px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
 }
 
 .comprartravel:hover {
-    background-color: #00349d;
+    color: #808dc4;
+}
+
+.comprartravel::before, .comprartravel::after {
+    content: '';
+    display: block;
+    width: 3.125rem;
+    height: 3.125rem;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
+}
+
+.comprartravel::before {
+    top: -1em;
+    left: -1em;
+}
+
+.comprartravel::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.comprartravel:hover::before, .comprartravel:hover::after {
+    height: 25.625rem;
+    width: 25.625rem;
+}
+
+.comprartravel:active {
+    filter: brightness(.8);
 }

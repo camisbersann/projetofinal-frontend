@@ -238,7 +238,7 @@ export default function Home({ params }) {
                 <p>{distance}</p>
                 <p>{drivingTime}</p>
 
-                <button onClick={() => handleTransportButtonClick('taxi')}>Taxi</button>
+                <button onClick={() => handleTransportButtonClick('taxi')}>Táxi</button>
                 <button onClick={() => handleTransportButtonClick('onibus')}>Ônibus</button>
                 <button onClick={() => handleTransportButtonClick('aviao')}>Avião</button>
               </div>
