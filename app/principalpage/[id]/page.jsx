@@ -254,16 +254,17 @@ export default function Home({ params }) {
               />
             )}
 
-            <div>
-              <h2>Viagens compradas</h2>
+            <div className={styles.travelDiv}>
+              <h2 className={styles.principalTitle}>Viagens compradas</h2>
               <div className={styles.travelList}>
                 {oldTravels.map((travel) => (
                   <div key={travel.id} className={styles.travelCard}>
-                    <h3>{travel.name}</h3>
-                    <p>Distância: {travel.distance}</p>
-                    <p>Tempo de viagem: {travel.drivingTime}</p>
-                    <p>Transporte: {travel.transport}</p>
-                    <p>Preço: {travel.price}</p>
+                    <h3 className={styles.cardTitle}>{travel.name}</h3>
+                    <p><strong>Distância:</strong> {travel.distance}</p>
+                    <p><strong>Tempo de viagem:</strong>{travel.drivingTime}</p>
+                    <p><strong>Transporte:</strong> {travel.transport}</p>
+                    <hr className={styles.divider}></hr>
+                    <p className={styles.price}><span>$</span> {travel.price}</p>
                   </div>
                 ))}
               </div>
