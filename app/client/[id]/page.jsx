@@ -1,3 +1,4 @@
+//Imports;
 'use client';
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -9,7 +10,10 @@ import Buttons from "@/app/components/Button/Button";
 import InputRegisters from "@/app/components/Input/Input";
 import Footer from "@/app/components/footer/Footer";
 
+//UpdateClient Function;
 export default function UpdateClient({ params }) {
+
+    // Defining states for form fields;
     const [name, setName] = useState("");
     const [birthdate, setBirthDate] = useState("");
     const [email, setEmail] = useState("");
@@ -22,10 +26,14 @@ export default function UpdateClient({ params }) {
     const { id } = params;
 
     useEffect(() => {
+
+        // Asynchronous function to fetch client details from server;
         async function fetchClientDetails() {
             try {
                 const response = await axios.get(`/api/client/${id}`)
                 const client = response.data;
+
+                // Updating states with customer details;
                 setName(client.name)
                 setBirthDate(client.birthdate)
                 setEmail(client.email)
@@ -39,17 +47,22 @@ export default function UpdateClient({ params }) {
             }
         }
 
+        // Checking if 'id' exists before calling the fetchClientDetails function;
         if (id) {
             fetchClientDetails()
         }
 
     }, [id]);
 
+    // Function called when submitting the form;
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
+            // Sending an HTTP PUT request to update client details;
             await axios.put(`/api/client/${id}`, { name, birthdate, email, password, money, cpf, cep, travels });
+
+            // Redirecting to 'alreadyRegistered' page;
             router.push(`/client/alreadyRegistered`);
         } catch (error) {
             console.error("Error updating client:", error);
@@ -64,6 +77,8 @@ export default function UpdateClient({ params }) {
                 <div className={styles.container}>
 
                     <div className={styles.actions}>
+
+                        {/* Link to return to 'alreadyRegistered' page */}
                         <Link href="/client/alreadyRegistered">
                             <Buttons titulo={"Voltar para Clientes"}/>
                         </Link>
@@ -72,7 +87,7 @@ export default function UpdateClient({ params }) {
                     <div className={styles.clientsContainer}>
                         <h1 className={styles.mainText}>Atualizar</h1>
 
-
+                        {/* Form to update customer details */}
                         <form onSubmit={handleSubmit}>
                             <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
 

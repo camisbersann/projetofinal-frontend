@@ -1,3 +1,4 @@
+//Imports;
 'use client';
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -8,6 +9,7 @@ import Link from "next/link";
 import InputRegisters from "@/app/components/Input/Input";
 import Buttons from "@/app/components/Button/Button";
 
+//UpdatePerson Function;
 export default function UpdatePerson({ params }) {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
@@ -19,11 +21,14 @@ export default function UpdatePerson({ params }) {
     const router = useRouter();
     const { id } = params;
 
+     // Asynchronous function to fetch person details from server;
     useEffect(() => {
         async function fetchPersonDetails() {
             try {
                 const response = await axios.get(`/api/person/${id}`)
                 const person = response.data;
+
+                 // Updating states with person details;
                 setName(person.name)
                 setAge(person.age)
                 setEmail(person.email)
@@ -36,17 +41,22 @@ export default function UpdatePerson({ params }) {
             }
         }
 
+         // Checking if 'id' exists before calling the fetchClientDetails function;
         if (id) {
             fetchPersonDetails()
         }
 
     }, [id]);
 
+      // Function called when submitting the form;
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
+            // Sending an HTTP PUT request to update person details;
             await axios.put(`/api/person/${id}`, { name, age, email, instagram, position, description, image });
+
+             // Redirecting to 'person' page;
             router.push(`/person/`);
         } catch (error) {
             console.error("Error updating person:", error);
@@ -65,6 +75,8 @@ export default function UpdatePerson({ params }) {
             <Header />
 
             <div className={styles.actions}>
+
+                 {/* Link to return to 'person' page */}
                 <Link href="/person">
                 <Buttons titulo={"Voltar para Membros"}/>
                 </Link>
@@ -73,6 +85,7 @@ export default function UpdatePerson({ params }) {
             <div className={styles.personContainer}>
                 <h1 className={styles.mainText}>Atualizar</h1>
 
+                 {/* Form to update customer details */}
                 <form onSubmit={handleSubmit}>
                     <InputRegisters type={"text"} varName={name} setVarName={setName} label={'Nome'} />
 

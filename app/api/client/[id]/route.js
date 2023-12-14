@@ -1,8 +1,11 @@
+//Imports;
 import axios from "axios";
 import { NextResponse } from "next/server";
 
+//Route;
 const url = process.env.BASE_URL + "/clients";
 
+//GET Function;
 export async function GET(request, { params }) {
     const { id } = params;
 
@@ -15,6 +18,7 @@ export async function GET(request, { params }) {
     }
 }
 
+//PUT Function;
 export async function PUT(request, { params }){
     const { id } = params;
     const body = await request.json();
@@ -28,6 +32,7 @@ export async function PUT(request, { params }){
     }
 }
 
+//DELETE Function;
 export async function DELETE(request, { params }) {
     const { id } = params;
     try{
