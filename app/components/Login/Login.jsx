@@ -1,6 +1,7 @@
 // Login.jsx
 import React from 'react';
 import styles from './Login.module.css';
+import Image from 'next/image';
 
 const Login = ({ setInputPassword, password, setLogged, passwordInput }) => {
   return (
