@@ -54,5 +54,17 @@
         flex-direction: column;
         gap: 2rem;
     }
+
+    #icons{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+    }
+
+    .logoImage{
+      margin-left: 4rem;
+    }
+
+
 }
 
