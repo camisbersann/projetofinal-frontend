@@ -7,6 +7,8 @@ import { Header } from "./components/header/Header";
 import InputRegisters from "@/app/components/Input/Input";
 import Buttons from "./components/Button/Button";
 import Footer from "./components/footer/Footer";
+import Popup from "./components/Popup/Popup";
+import PopupMessage from "./components/MensageError/MensageError";
 
 
 export default function Register() {
@@ -18,6 +20,8 @@ export default function Register() {
     const [cpf, setCpf] = useState("");
     const [cep, setCep] = useState("");
     const [client, setClient] = useState([]);
+    const [popupMessage, setPopupMessage] = useState("");
+    const [messageStatus, setMessageStatus] = useState("");
 
 
     const handleSubmit = async (e) => {
@@ -32,8 +36,21 @@ export default function Register() {
             setEmail("");
             setCpf("");
             setCep("");
+            setPopupMessage("Cadastro realizado com sucesso!");
+            setMessageStatus('success');
+            
+            setTimeout(() => {
+                setPopupMessage("");
+                setMessageStatus("");
+            }, 3000);
         } catch (error) {
             console.error(error);
+            setPopupMessage("Erro ao cadastrar!");
+            setMessageStatus('error');
+            setTimeout(() => {
+                setPopupMessage("");
+                setMessageStatus("");
+            }, 3000);
         }
 
 
@@ -86,6 +103,7 @@ export default function Register() {
                             <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
 
                             <Buttons type={"submit"} titulo={"Registrar"} />
+                            <PopupMessage errorMessage={popupMessage} status={messageStatus}/>
                             </form>
                     </div>
                 </div>
