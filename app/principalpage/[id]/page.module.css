@@ -35,16 +35,7 @@
     margin-left: 39rem;
 }
 
-.selectedTravel::before {
-    width: 9.375rem;
-    height: 9.375rem;
-    content: "";
-    position: absolute;
-    z-index: 1;
-    border-radius: 50%;
-    right: -25%;
-    top: -25%;
-}
+
 
 .transportButton{
     display: flex;
