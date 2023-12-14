@@ -58,10 +58,11 @@
   .logoImage {
     margin-right: 0;
     margin-bottom: 1rem;
+   margin-left: 3.2rem;
   }
 
   .d1 {
-    padding: 1rem;
+    padding: 0.4rem;
     height: 0.5rem;
   }
 }

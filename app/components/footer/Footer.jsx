@@ -13,8 +13,6 @@ export default function Footer() {
           <h2>Code Breakers</h2>
         </div>
         <div className={styles.a} id={styles.icons}>
-
-
           <a href="https://linktr.ee/lonaenrico" target="_blank" rel="noopener noreferrer"><Image src={"/md_5af2d4cabfdf2-removebg-preview.png"} width={50} height={50} alt="logo do whatsapp" /></a>
           <a href="http://linktr.ee/camisbersan" target="_blank" rel="noopener noreferrer"><Image src={"/whatsapp-removebg-preview.png"} width={28} height={28} alt="logo do instagram" /></a>
           <a href="https://linktr.ee/andreybotero?utm_source=linktree_admin_share" target="_blank" rel="noopener noreferrer"><Image src={'/pngwing.com.png'} width={38} height={38} alt="logo do github" /></a>

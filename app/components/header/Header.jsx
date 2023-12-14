@@ -28,6 +28,10 @@ export const Header = () => {
                     <NavLink rota="/person" imagem={"/about-us-svgrepo-com.svg"} />
                 </div>
 
+                <div className={styles.d1}>
+                    <NavLink rota="/contato" imagem={"/telefone.svg"} />
+                </div>
+
             </div>
             
         </div>
