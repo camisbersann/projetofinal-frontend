@@ -31,6 +31,8 @@ export default function Home({ params }) {
   const [inputPassword, setInputPassword] = useState("");
   const [regions, setRegions] = useState(['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul']);
   const [selectedRegion, setSelectedRegion] = useState("Todos");
+  const [minCities, setMinCities] = useState(10);
+  const [maxCities, setMaxCities] = useState(860);
 
   const { id } = params;
 
@@ -50,17 +52,15 @@ export default function Home({ params }) {
       await axios.put(`/api/client/${id}`, { name, birthdate, email, password, money, cpf, cep, travels });
       setShowPopup(false);
 
-      // Limpa os estados para que possa selecionar uma nova viagem
       setSelectedTransport(null);
       setSelectedTravel(null);
       setDistance(null);
       setDrivingTime(null);
       setPrice(null);
 
-      attuserClient()
+      attuserClient();
     } catch (error) {
       console.error('Erro ao comprar a viagem:', error);
-      // Opcional: Adicione uma mensagem de erro para o usuário.
     }
   }
 
@@ -183,6 +183,28 @@ export default function Home({ params }) {
     }
   };
 
+  // Render draggable city range filter component
+  const CityRangeFilter = () => (
+    <div className={styles.cityRangeFilter}>
+      <p>Minimum Cities: {minCities}</p>
+      <input
+        type="range"
+        min={10}
+        max={860}
+        value={minCities}
+        onChange={(e) => setMinCities(parseInt(e.target.value))}
+      />
+      <p>Maximum Cities: {maxCities}</p>
+      <input
+        type="range"
+        min={10}
+        max={860}
+        value={maxCities}
+        onChange={(e) => setMaxCities(parseInt(e.target.value))}
+      />
+    </div>
+  );
+
   return (
     <div className={styles.container}>
       <Header />
@@ -191,6 +213,8 @@ export default function Home({ params }) {
           <Login setInputPassword={setInputPassword} password={password} setLogged={setLogged} passwordInput={inputPassword} />
         ) : (
           <>
+            <CityRangeFilter />
+
             <RegionSelector
               selectedRegion={selectedRegion}
               setSelectedRegion={setSelectedRegion}
@@ -198,33 +222,45 @@ export default function Home({ params }) {
             />
             <div className={styles.travelList}>
               {
-                selectedRegion == "Todos" ? (<>
+                selectedRegion === "Todos" ? (<>
                   {regions.map((region) => (
                     <div key={region} className={styles.regionCard}>
                       <h2>{region}</h2>
                       <div className={styles.travelCards}>
-                        {travels01.map((travel) => {
-                          if (travel.region === region) {
-                            return (
-                              <TravelCard key={travel.id} travel={travel} handleTravelClick={handleTravelClick} />
-                            );
-                          }
-                          return null;
-                        })}
+                        {travels01
+                          .filter(
+                            (travel) =>
+                              travel.region === region &&
+                              travel.cities >= minCities &&
+                              travel.cities <= maxCities
+                          )
+                          .map((filteredTravel) => (
+                            <TravelCard
+                              key={filteredTravel.id}
+                              travel={filteredTravel}
+                              handleTravelClick={handleTravelClick}
+                            />
+                          ))}
                       </div>
                     </div>
                   ))}</>) : (<>
                     <div className={styles.regionCard}>
                       <h2>{selectedRegion}</h2>
                       <div className={styles.travelCards}>
-                        {travels01.map((travel) => {
-                          if (travel.region === selectedRegion) {
-                            return (
-                              <TravelCard key={travel.id} travel={travel} handleTravelClick={handleTravelClick} />
-                            );
-                          }
-                          return null;
-                        })}
+                        {travels01
+                          .filter(
+                            (travel) =>
+                              travel.region === selectedRegion &&
+                              travel.cities >= minCities &&
+                              travel.cities <= maxCities
+                          )
+                          .map((filteredTravel) => (
+                            <TravelCard
+                              key={filteredTravel.id}
+                              travel={filteredTravel}
+                              handleTravelClick={handleTravelClick}
+                            />
+                          ))}
                       </div>
                     </div>
                   </>)
