@@ -8,6 +8,8 @@ import { Header } from "@/app/components/header/Header";
 import Link from "next/link";
 import InputRegisters from "@/app/components/Input/Input";
 import Buttons from "@/app/components/Button/Button";
+import Footer from "@/app/components/footer/Footer";
+
 
 //UpdatePerson Function;
 export default function UpdatePerson({ params }) {
@@ -74,7 +76,10 @@ export default function UpdatePerson({ params }) {
         <>
             <Header />
 
-            <div className={styles.actions}>
+            <div className={styles.body}>
+                <div className={styles.container}>
+
+                    <div className={styles.actions}>
 
                  {/* Link to return to 'person' page */}
                 <Link href="/person">
@@ -103,8 +108,11 @@ export default function UpdatePerson({ params }) {
 
                     <Buttons type={"submit"} titulo={"Atualizar"} />
 
-                </form>
+                    </form>
+                    </div>
+                </div>
             </div>
+            <Footer />
         </>
 
     )
