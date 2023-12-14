@@ -103,10 +103,10 @@ export default function Register() {
                             <InputRegisters type={"number"} varName={cep} setVarName={setCep} label={'CEP'} />
 
                             <Buttons type={"submit"} titulo={"Registrar"} />
+                            <PopupMessage errorMessage={popupMessage} status={messageStatus}/>
                             </form>
                     </div>
                 </div>
-                <PopupMessage errorMessage={popupMessage} status={messageStatus}/>
             </div>
             <Footer />
         </>
