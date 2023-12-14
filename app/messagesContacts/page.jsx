@@ -1,6 +1,9 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styles from './page.module.css'; // Certifique-se de ajustar o caminho do arquivo de estilos
+import { Header } from '../components/header/Header';
+import Footer from '../components/footer/Footer';
 
 export default function MostrarInformacoes() {
     const [informacoes, setInformacoes] = useState([]);
@@ -21,14 +24,24 @@ export default function MostrarInformacoes() {
 
     return (
         <>
-            <h1>Informações Postadas</h1>
-            <ul>
-                {informacoes.map((info, index) => (
-                    <li key={index}>
-                        <strong>Email:</strong> {info.email}, <strong>Mensagem:</strong> {info.message}
-                    </li>
-                ))}
-            </ul>
+            <Header />
+            <div className={styles.divInfo}>
+                <h1 className={styles.pageTitle}>Informações Postadas</h1>
+                <ul className={styles.infoList}>
+                    {informacoes.map((info, index) => (
+                        <li key={index} className={styles.infoItem}>
+                            <div>
+                                <img src={'https://static.vecteezy.com/system/resources/previews/001/840/618/original/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg'} width={64} height={64} className={styles.icon}></img>
+                                <p className={styles.emailName}>{info.email}</p>
+                            </div>
+                            <div>
+                                <p>{info.message}</p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <Footer />
         </>
     );
 }

@@ -1,0 +1,51 @@
+.divInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .pageTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .infoList {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .infoItem {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  
+  .icon {
+    border-radius: 50%;
+  }
+  
+  @media (max-width: 768px) {
+    .infoItem {
+      width: calc(50% - 20px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .infoItem {
+      width: 100%;
+    }
+  }
+
+  .emailName {
+    border-bottom: 2.5px solid;
+    border-image: linear-gradient(to right, #5d00ff, transparent);
+    border-image-slice: 1;
+    margin-bottom:1.5rem;
+  }
