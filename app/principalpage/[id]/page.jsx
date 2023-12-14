@@ -233,14 +233,16 @@ export default function Home({ params }) {
 
             {selectedTravel && (
               <div className={styles.selectedTravel}>
-                <h3>Viagem Selecionada:</h3>
-                <p>{selectedTravel.name}</p>
-                <p>{distance}</p>
-                <p>{drivingTime}</p>
+                <h3 className={styles.travelTitle}>Viagem Selecionada:</h3>
+                <p><strong>Região:</strong> {selectedTravel.name}</p>
+                <p><strong>Distância:</strong> {distance}</p>
+                <p><strong>Tempo:</strong> {drivingTime}</p>
 
-                <button onClick={() => handleTransportButtonClick('taxi')}>Táxi</button>
-                <button onClick={() => handleTransportButtonClick('onibus')}>Ônibus</button>
-                <button onClick={() => handleTransportButtonClick('aviao')}>Avião</button>
+                <div className={styles.buttonDiv}>
+                <button onClick={() => handleTransportButtonClick('taxi')} className={styles.transportButton}>Táxi</button>
+                <button onClick={() => handleTransportButtonClick('onibus')} className={styles.transportButton}>Ônibus</button>
+                <button onClick={() => handleTransportButtonClick('aviao')} className={styles.transportButton}>Avião</button>
+                </div>
               </div>
             )}
 
