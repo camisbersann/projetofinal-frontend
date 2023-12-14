@@ -26,7 +26,7 @@ export default function MostrarInformacoes() {
         <>
             <Header />
             <div className={styles.divInfo}>
-                <h1 className={styles.pageTitle}>Informações Postadas</h1>
+                <h1 className={styles.pageTitle}>Feedback dos usuarios</h1>
                 <ul className={styles.infoList}>
                     {informacoes.map((info, index) => (
                         <li key={index} className={styles.infoItem}>
